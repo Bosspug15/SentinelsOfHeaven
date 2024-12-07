@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://cnwaygvu8dyxh"]
+
+[ext_resource type="Texture2D" uid="uid://d2m8wpjeutujs" path="res://Assets/SawbladeTestNext.png" id="1_14kvy"]
+[ext_resource type="PackedScene" uid="uid://bfyw6ffhn213d" path="res://Scenes/killzone.tscn" id="2_57pd3"]
+[ext_resource type="Texture2D" uid="uid://bmyntul34tlqk" path="res://Assets/SawbladeSparksUpdate2.png" id="2_lqqgm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmrju"]
+atlas = ExtResource("1_14kvy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik4u3"]
+atlas = ExtResource("1_14kvy")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpmsj"]
+atlas = ExtResource("1_14kvy")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpnq0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmrju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik4u3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpmsj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eaj1t"]
+atlas = ExtResource("2_lqqgm")
+region = Rect2(0, 0, 76, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cskk8"]
+atlas = ExtResource("2_lqqgm")
+region = Rect2(76, 0, 76, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re7vs"]
+atlas = ExtResource("2_lqqgm")
+region = Rect2(152, 0, 76, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_apkti"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eaj1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cskk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re7vs")
+}],
+"loop": true,
+"name": &"spark",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klbyg"]
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4477c"]
+size = Vector2(56, 16)
+
+[node name="moving saw" type="AnimatableBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vpnq0")
+autoplay = "default"
+frame = 1
+frame_progress = 0.89289
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_apkti")
+animation = &"spark"
+autoplay = "spark"
+frame = 1
+frame_progress = 0.314193
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 29)
+shape = SubResource("RectangleShape2D_klbyg")
+
+[node name="Killzone" parent="." instance=ExtResource("2_57pd3")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 19)
+shape = SubResource("RectangleShape2D_4477c")
