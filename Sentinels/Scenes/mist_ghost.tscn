@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cn3vh3hjeqsdy"]
+[gd_scene load_steps=6 format=3 uid="uid://cn3vh3hjeqsdy"]
 
 [ext_resource type="PackedScene" uid="uid://bfyw6ffhn213d" path="res://Scenes/killzone.tscn" id="1_1bmha"]
 [ext_resource type="Texture2D" uid="uid://cdrhftpryknsl" path="res://icon.svg" id="1_nyjes"]
+[ext_resource type="Script" path="res://Scripts/mist_ghost.gd" id="1_yt81u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxmy2"]
 size = Vector2(127, 42)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_aedph"]
+
 [node name="MistGhost" type="Node2D"]
+script = ExtResource("1_yt81u")
 
 [node name="Killzone" parent="." instance=ExtResource("1_1bmha")]
 position = Vector2(3, 0)
@@ -21,3 +25,13 @@ scale = Vector2(0.960938, 0.333333)
 texture = ExtResource("1_nyjes")
 
 [node name="Lifetime" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="TestTracking" type="Area2D" parent="."]
+
+[node name="TestTrackingHitbox" type="CollisionShape2D" parent="TestTracking"]
+scale = Vector2(30.1919, 30.1919)
+shape = SubResource("CircleShape2D_aedph")
+
+[connection signal="body_entered" from="TestTracking" to="." method="_on_test_tracking_body_entered"]
+[connection signal="body_exited" from="TestTracking" to="." method="_on_test_tracking_body_exited"]
