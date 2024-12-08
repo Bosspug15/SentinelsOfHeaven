@@ -206,4 +206,8 @@ volume_db = 8.0
 stream = ExtResource("8_66tfw")
 volume_db = 5.0
 
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.19
+one_shot = true
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]

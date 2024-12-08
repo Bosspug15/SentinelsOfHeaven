@@ -18,6 +18,8 @@ var death_pos = Vector2(-806, 54)
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var landing_sound = $landingSound
 @onready var jumping_sound = $jumpingSound
+@onready var coyote_timer = $CoyoteTimer
+
 @onready var is_Dead = false
 @onready var dust = preload("res://Scenes/dust.tscn")
 var isGrounded = true
@@ -25,12 +27,16 @@ var isGrounded = true
 func _physics_process(delta):
 	
 	if isGrounded == false and is_on_floor() == true:
+		coyote_timer.start()
 		var instance = dust.instantiate()
 		landing_sound.play()
 		instance.global_position = $Marker2D.global_position
 		get_parent().add_child(instance)
 	
 	isGrounded = is_on_floor()
+	
+	#if isGrounded && !is_on_floor():
+		#coyote_timer.start()
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -40,7 +46,7 @@ func _physics_process(delta):
 		get_tree().reload_current_scene()
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor() and !is_Dead:
+	if Input.is_action_just_pressed("jump") && (is_on_floor() || !coyote_timer.is_stopped()) && !is_Dead:
 		velocity.y = JUMP_VELOCITY
 		jumping_sound.play()
 	

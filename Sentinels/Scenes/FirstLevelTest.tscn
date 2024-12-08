@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://5ri5hv4fsr27"]
+[gd_scene load_steps=64 format=3 uid="uid://5ri5hv4fsr27"]
 
 [ext_resource type="PackedScene" uid="uid://cvv6wgu78lm73" path="res://Scenes/player.tscn" id="1_tlq0o"]
 [ext_resource type="PackedScene" uid="uid://cvd0vvnmp80d8" path="res://Scenes/Spike.tscn" id="2_2sis4"]
@@ -28,6 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://d2mynq2p1kv23" path="res://Assets/SmoothBrickCornerRight (2).png" id="28_k86ff"]
 [ext_resource type="Texture2D" uid="uid://cpvgrmn72pu86" path="res://Assets/SmoothBrickCornerRight.png" id="29_eksy7"]
 [ext_resource type="Texture2D" uid="uid://dwi2q258srpmb" path="res://Assets/SmoothBrickCornerRight (1).png" id="30_3hbnh"]
+[ext_resource type="PackedScene" uid="uid://dsw4nvbk0eun4" path="res://Scenes/mist_ghost.tscn" id="30_c1m17"]
+[ext_resource type="Script" path="res://Scripts/playAnimHitbox.gd" id="31_1bkio"]
 [ext_resource type="AudioStream" uid="uid://c6jn1efxkftxd" path="res://Assets/SlowedAmbianceToH.wav" id="31_ut81i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w1cxn"]
@@ -253,6 +255,61 @@ sources/19 = SubResource("TileSetAtlasSource_xyfk2")
 sources/24 = SubResource("TileSetAtlasSource_2b0jb")
 sources/25 = SubResource("TileSetAtlasSource_ifolq")
 
+[sub_resource type="Animation" id="Animation_2bejj"]
+resource_name = "moveLeft"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(92, -579), Vector2(-901, -579), Vector2(-1467, -579)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 6.9, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kw7jc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qc8h1"]
+_data = {
+"RESET": SubResource("Animation_kw7jc"),
+"moveLeft": SubResource("Animation_2bejj")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhiom"]
+size = Vector2(20, 151)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chhuh"]
+size = Vector2(6, 6)
+
 [node name="TestScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_tlq0o")]
@@ -373,3 +430,26 @@ stream = ExtResource("31_ut81i")
 autoplay = true
 max_distance = 10000.0
 panning_strength = 0.0
+
+[node name="MistGhost" parent="." instance=ExtResource("30_c1m17")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(92, -579)
+
+[node name="playAnimHitbox" type="Area2D" parent="MistGhost"]
+script = ExtResource("31_1bkio")
+
+[node name="playAnimation" type="AnimationPlayer" parent="MistGhost/playAnimHitbox"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_qc8h1")
+}
+
+[node name="hitbox" type="CollisionShape2D" parent="MistGhost/playAnimHitbox"]
+position = Vector2(-227, -17.5)
+shape = SubResource("RectangleShape2D_yhiom")
+
+[node name="vestigial" type="CollisionShape2D" parent="MistGhost"]
+position = Vector2(75, 0)
+shape = SubResource("RectangleShape2D_chhuh")
+
+[connection signal="body_entered" from="MistGhost/playAnimHitbox" to="MistGhost/playAnimHitbox" method="_on_body_entered"]
