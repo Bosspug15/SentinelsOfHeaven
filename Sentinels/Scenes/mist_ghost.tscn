@@ -1,10 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsw4nvbk0eun4"]
+[gd_scene load_steps=9 format=3 uid="uid://dsw4nvbk0eun4"]
 
 [ext_resource type="PackedScene" uid="uid://bfyw6ffhn213d" path="res://Scenes/killzone.tscn" id="1_1bmha"]
-[ext_resource type="Texture2D" uid="uid://dxjd2wap352n0" path="res://Assets/autsim.jpg" id="2_jicov"]
+[ext_resource type="Texture2D" uid="uid://berf2oiui2aqb" path="res://Assets/MistGhost.png" id="2_nmd46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhglb"]
 size = Vector2(34, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipqr7"]
+atlas = ExtResource("2_nmd46")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmg0l"]
+atlas = ExtResource("2_nmd46")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsxyb"]
+atlas = ExtResource("2_nmd46")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu7he"]
+atlas = ExtResource("2_nmd46")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m2d34"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipqr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmg0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsxyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu7he")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="MistGhost" type="AnimatableBody2D"]
 
@@ -14,7 +50,11 @@ size = Vector2(34, 26)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_jhglb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
 z_index = 5
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_jicov")
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_m2d34")
+autoplay = "default"
+frame = 3
+frame_progress = 0.831547
