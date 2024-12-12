@@ -311,6 +311,21 @@ size = Vector2(20, 151)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chhuh"]
 size = Vector2(6, 6)
 
+[sub_resource type="Animation" id="Animation_on7f5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_gi6j7"]
 resource_name = "driftLeft"
 length = 35.0
@@ -340,7 +355,13 @@ tracks/1/keys = {
 "values": [Vector2(480, -504), Vector2(-1314, -504)]
 }
 
-[sub_resource type="Animation" id="Animation_on7f5"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rgceb"]
+_data = {
+"RESET": SubResource("Animation_on7f5"),
+"driftLeft": SubResource("Animation_gi6j7")
+}
+
+[sub_resource type="Animation" id="Animation_xarwp"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -353,12 +374,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rgceb"]
-_data = {
-"RESET": SubResource("Animation_on7f5"),
-"driftLeft": SubResource("Animation_gi6j7")
 }
 
 [sub_resource type="Animation" id="Animation_xtsvy"]
@@ -388,21 +403,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.862745), Color(1, 1, 1, 0.862745), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_xarwp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bee6y"]
@@ -550,7 +550,6 @@ position = Vector2(75, 0)
 shape = SubResource("RectangleShape2D_chhuh")
 
 [node name="MistLeft" parent="." instance=ExtResource("32_h6ak7")]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(336.178, -504)
 
@@ -561,7 +560,6 @@ libraries = {
 autoplay = "driftLeft"
 
 [node name="MistRight" parent="." instance=ExtResource("32_h6ak7")]
-visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-1270, -1147)
 
