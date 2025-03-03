@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://tv71tsg7vf3x"]
 
 [ext_resource type="Texture2D" uid="uid://bebqn03y2ymma" path="res://Assets/Fan.png" id="1_l3ano"]
-[ext_resource type="Texture2D" uid="uid://6uwpnhneejh0" path="res://Assets/Gust.png" id="2_unohu"]
+[ext_resource type="Texture2D" uid="uid://6uwpnhneejh0" path="res://Assets/Animations/Gust.png" id="2_unohu"]
 [ext_resource type="PackedScene" uid="uid://bfyw6ffhn213d" path="res://Scenes/killzone.tscn" id="3_7bv0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlb7o"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://dsrxu7nneufkf"]
 
-[ext_resource type="Texture2D" uid="uid://dyfcmwtpa22en" path="res://Assets/JumpDust.png" id="1_3e4a8"]
+[ext_resource type="Texture2D" uid="uid://dyfcmwtpa22en" path="res://Assets/Animations/JumpDust.png" id="1_3e4a8"]
 [ext_resource type="Script" path="res://Scripts/dust.gd" id="2_dwwk2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ajfw"]

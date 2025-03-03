@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://btx8o0up31ju0"]
 
 [ext_resource type="Texture2D" uid="uid://c3ls4wvbf1ybq" path="res://Assets/SavePoint.png" id="1_b7lyh"]
-[ext_resource type="Texture2D" uid="uid://ci0wcqyhdnl82" path="res://Assets/HaloFloat.png" id="2_q51sg"]
+[ext_resource type="Texture2D" uid="uid://ci0wcqyhdnl82" path="res://Assets/Animations/HaloFloat.png" id="2_q51sg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wnuue"]
 atlas = ExtResource("2_q51sg")

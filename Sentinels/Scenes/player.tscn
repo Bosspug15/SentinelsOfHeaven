@@ -1,13 +1,13 @@
 [gd_scene load_steps=31 format=3 uid="uid://cvv6wgu78lm73"]
 
-[ext_resource type="Texture2D" uid="uid://fc3u85kjj2mk" path="res://Assets/BasicWalkUpdate.png" id="1_cuj85"]
+[ext_resource type="Texture2D" uid="uid://fc3u85kjj2mk" path="res://Assets/Animations/BasicWalkUpdate.png" id="1_cuj85"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_qu07d"]
-[ext_resource type="Texture2D" uid="uid://dticwtjgtm4pt" path="res://Assets/JumpDown (2).png" id="2_cxw6h"]
-[ext_resource type="Texture2D" uid="uid://3626gleyg5oo" path="res://Assets/dissolveFInal (2).png" id="2_ka8xp"]
-[ext_resource type="Texture2D" uid="uid://l0dm5m3btg0s" path="res://Assets/JumpUp.png" id="3_mclxe"]
-[ext_resource type="Texture2D" uid="uid://cc2lwf6wywos5" path="res://Assets/BasicWalkUpdate4Frame (1).png" id="4_davsm"]
-[ext_resource type="AudioStream" uid="uid://davvp3n47sbwp" path="res://Assets/LandingSoundBass.wav" id="7_bv8uc"]
-[ext_resource type="AudioStream" uid="uid://4kskrb54tb2u" path="res://Assets/JumpSound.wav" id="8_66tfw"]
+[ext_resource type="Texture2D" uid="uid://dticwtjgtm4pt" path="res://Assets/Animations/JumpDown (2).png" id="2_cxw6h"]
+[ext_resource type="Texture2D" uid="uid://3626gleyg5oo" path="res://Assets/Animations/dissolveFInal (2).png" id="2_ka8xp"]
+[ext_resource type="Texture2D" uid="uid://l0dm5m3btg0s" path="res://Assets/Animations/JumpUp.png" id="3_mclxe"]
+[ext_resource type="Texture2D" uid="uid://cc2lwf6wywos5" path="res://Assets/Animations/BasicWalkUpdate4Frame (1).png" id="4_davsm"]
+[ext_resource type="AudioStream" uid="uid://davvp3n47sbwp" path="res://Assets/Audio/LandingSoundBass.wav" id="7_bv8uc"]
+[ext_resource type="AudioStream" uid="uid://4kskrb54tb2u" path="res://Assets/Audio/JumpSound.wav" id="8_66tfw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_elo4h"]
 atlas = ExtResource("2_ka8xp")

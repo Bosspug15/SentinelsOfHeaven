@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://cnwaygvu8dyxh"]
 
-[ext_resource type="Texture2D" uid="uid://d2m8wpjeutujs" path="res://Assets/SawbladeTestNext.png" id="1_14kvy"]
+[ext_resource type="Texture2D" uid="uid://d2m8wpjeutujs" path="res://Assets/Animations/SawbladeTestNext.png" id="1_14kvy"]
 [ext_resource type="PackedScene" uid="uid://bfyw6ffhn213d" path="res://Scenes/killzone.tscn" id="2_57pd3"]
-[ext_resource type="Texture2D" uid="uid://bmyntul34tlqk" path="res://Assets/SawbladeSparksUpdate2.png" id="2_lqqgm"]
+[ext_resource type="Texture2D" uid="uid://bmyntul34tlqk" path="res://Assets/Animations/SawbladeSparksUpdate2.png" id="2_lqqgm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmrju"]
 atlas = ExtResource("1_14kvy")
