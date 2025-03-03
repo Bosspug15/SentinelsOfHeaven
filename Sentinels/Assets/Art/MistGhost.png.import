@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oqyhpklsbnjx"
-path="res://.godot/imported/Grass (2).png-70e9288e8637a0669c2961b0b35a31ac.ctex"
+uid="uid://berf2oiui2aqb"
+path="res://.godot/imported/MistGhost.png-6deac9ee236e3b9bb67bd86fab0e1dd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Grass (2).png"
-dest_files=["res://.godot/imported/Grass (2).png-70e9288e8637a0669c2961b0b35a31ac.ctex"]
+source_file="res://Assets/Art/MistGhost.png"
+dest_files=["res://.godot/imported/MistGhost.png-6deac9ee236e3b9bb67bd86fab0e1dd4.ctex"]
 
 [params]
 

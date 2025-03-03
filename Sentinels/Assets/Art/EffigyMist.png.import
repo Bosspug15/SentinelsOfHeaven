@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b43a2sdl574qq"
-path="res://.godot/imported/Untitled-1.png-fd7f9a330b7908464b38c03aba2c26c0.ctex"
+uid="uid://dob02mi3mbirw"
+path="res://.godot/imported/EffigyMist.png-1fa68d368e75a00ee38a1919ca961bea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Untitled-1.png"
-dest_files=["res://.godot/imported/Untitled-1.png-fd7f9a330b7908464b38c03aba2c26c0.ctex"]
+source_file="res://Assets/Art/EffigyMist.png"
+dest_files=["res://.godot/imported/EffigyMist.png-1fa68d368e75a00ee38a1919ca961bea.ctex"]
 
 [params]
 

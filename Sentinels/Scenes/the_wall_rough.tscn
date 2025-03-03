@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bltt42x8u1j4a"]
+
+[ext_resource type="Texture2D" uid="uid://0ch4bp3mawvm" path="res://Assets/Art/The Wall Rough.png" id="1_u0tu3"]
+[ext_resource type="Texture2D" uid="uid://bde2s0pjsjf5n" path="res://Assets/Art/Wall Rough Flash.png" id="2_gk5yu"]
+
+[node name="TheWallRough" type="Sprite2D"]
+z_index = -20
+position = Vector2(-526, -694)
+scale = Vector2(11.6806, 11.6806)
+texture = ExtResource("1_u0tu3")
+
+[node name="WallRoughFlash" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.0588235)
+position = Vector2(-1.41065e-06, 0.0856115)
+texture = ExtResource("2_gk5yu")

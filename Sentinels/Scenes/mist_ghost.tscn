@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dsw4nvbk0eun4"]
 
 [ext_resource type="PackedScene" uid="uid://bfyw6ffhn213d" path="res://Scenes/killzone.tscn" id="1_1bmha"]
-[ext_resource type="Texture2D" uid="uid://berf2oiui2aqb" path="res://Assets/MistGhost.png" id="2_nmd46"]
+[ext_resource type="Texture2D" uid="uid://berf2oiui2aqb" path="res://Assets/Art/MistGhost.png" id="2_nmd46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhglb"]
 size = Vector2(14.25, 13.5)

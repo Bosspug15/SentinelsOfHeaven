@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6rljixbxyx1k"
-path="res://.godot/imported/Grass w Flower.png-681d5d3e7e6ed5e53e46e43985abe527.ctex"
+uid="uid://12gg6e0yb601"
+path="res://.godot/imported/Spike.png-47856d52a3f097281dae0eb747418231.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Grass w Flower.png"
-dest_files=["res://.godot/imported/Grass w Flower.png-681d5d3e7e6ed5e53e46e43985abe527.ctex"]
+source_file="res://Assets/Art/Spike.png"
+dest_files=["res://.godot/imported/Spike.png-47856d52a3f097281dae0eb747418231.ctex"]
 
 [params]
 

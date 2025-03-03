@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxjd2wap352n0"
-path="res://.godot/imported/autsim.jpg-d76b028c08b48ffa79570603384296ef.ctex"
+uid="uid://dlg38qo87ym43"
+path="res://.godot/imported/BlissBlue.png-ffbbbb200ef364604e01696ffb67926f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/autsim.jpg"
-dest_files=["res://.godot/imported/autsim.jpg-d76b028c08b48ffa79570603384296ef.ctex"]
+source_file="res://Assets/Art/BlissBlue.png"
+dest_files=["res://.godot/imported/BlissBlue.png-ffbbbb200ef364604e01696ffb67926f.ctex"]
 
 [params]
 

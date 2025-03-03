@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://berf2oiui2aqb"
-path="res://.godot/imported/MistGhost.png-8ba0a2fd3ad449db8d36301377f6713c.ctex"
+uid="uid://dxjd2wap352n0"
+path="res://.godot/imported/autsim.jpg-561908ca313f844811b27e92f3613dcb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MistGhost.png"
-dest_files=["res://.godot/imported/MistGhost.png-8ba0a2fd3ad449db8d36301377f6713c.ctex"]
+source_file="res://Assets/Art/autsim.jpg"
+dest_files=["res://.godot/imported/autsim.jpg-561908ca313f844811b27e92f3613dcb.ctex"]
 
 [params]
 

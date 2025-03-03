@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c60jivelx8tsu"
-path="res://.godot/imported/Grass.png-09595ac432dada4320fe75d2e4264f41.ctex"
+uid="uid://0ch4bp3mawvm"
+path="res://.godot/imported/The Wall Rough.png-bf84a099e3038770fa59b5232365893a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Grass.png"
-dest_files=["res://.godot/imported/Grass.png-09595ac432dada4320fe75d2e4264f41.ctex"]
+source_file="res://Assets/Art/The Wall Rough.png"
+dest_files=["res://.godot/imported/The Wall Rough.png-bf84a099e3038770fa59b5232365893a.ctex"]
 
 [params]
 

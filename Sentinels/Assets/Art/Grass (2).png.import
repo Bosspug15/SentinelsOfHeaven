@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dob02mi3mbirw"
-path="res://.godot/imported/EffigyMist.png-036a42b682e6670d7cb77a38f34f01fa.ctex"
+uid="uid://oqyhpklsbnjx"
+path="res://.godot/imported/Grass (2).png-0db56c9acf68aa62f3456a5fd4e0739f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EffigyMist.png"
-dest_files=["res://.godot/imported/EffigyMist.png-036a42b682e6670d7cb77a38f34f01fa.ctex"]
+source_file="res://Assets/Art/Grass (2).png"
+dest_files=["res://.godot/imported/Grass (2).png-0db56c9acf68aa62f3456a5fd4e0739f.ctex"]
 
 [params]
 

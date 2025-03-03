@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bily3x8yvo1m"
-path="res://.godot/imported/SpikeSmall.png-8a3529887dc8b2acfe455f01c34d39ba.ctex"
+uid="uid://cr3dhxh2cpukx"
+path="res://.godot/imported/Grass (1).png-79c1ad3705ff437c37e71a3e0b2e5972.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpikeSmall.png"
-dest_files=["res://.godot/imported/SpikeSmall.png-8a3529887dc8b2acfe455f01c34d39ba.ctex"]
+source_file="res://Assets/Art/Grass (1).png"
+dest_files=["res://.godot/imported/Grass (1).png-79c1ad3705ff437c37e71a3e0b2e5972.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dhdw3j3knwi3x"]
 
-[ext_resource type="Texture2D" uid="uid://ighee00coy13" path="res://Assets/Mist.png" id="1_dnup7"]
+[ext_resource type="Texture2D" uid="uid://ighee00coy13" path="res://Assets/Art/Mist.png" id="1_dnup7"]
 
 [node name="Mist" type="Sprite2D"]
 modulate = Color(1, 1, 1, 0.862745)

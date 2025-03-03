@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt3dwjo83t6yt"
-path="res://.godot/imported/Soul of The Wall.png-b2ece7950c3199801042b0b2115fea8f.ctex"
+uid="uid://c6rljixbxyx1k"
+path="res://.godot/imported/Grass w Flower.png-d8672e21f420a8cd20b0f901e9c2346f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Soul of The Wall.png"
-dest_files=["res://.godot/imported/Soul of The Wall.png-b2ece7950c3199801042b0b2115fea8f.ctex"]
+source_file="res://Assets/Art/Grass w Flower.png"
+dest_files=["res://.godot/imported/Grass w Flower.png-d8672e21f420a8cd20b0f901e9c2346f.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cvd0vvnmp80d8"]
 
-[ext_resource type="Texture2D" uid="uid://bily3x8yvo1m" path="res://Assets/SpikeSmall.png" id="1_vs11e"]
+[ext_resource type="Texture2D" uid="uid://bily3x8yvo1m" path="res://Assets/Art/SpikeSmall.png" id="1_vs11e"]
 [ext_resource type="PackedScene" uid="uid://bfyw6ffhn213d" path="res://Scenes/killzone.tscn" id="2_bls7b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1qbt8"]

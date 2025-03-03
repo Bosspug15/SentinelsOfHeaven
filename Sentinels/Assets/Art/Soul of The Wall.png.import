@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rqga722rrwmj"
-path="res://.godot/imported/windowTestpleaserevise2.png-4b4b42893b3817f44bf4d48e18e11bc7.ctex"
+uid="uid://dt3dwjo83t6yt"
+path="res://.godot/imported/Soul of The Wall.png-6a1edbb3fc771da092d01c9eb0ded6bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/windowTestpleaserevise2.png"
-dest_files=["res://.godot/imported/windowTestpleaserevise2.png-4b4b42893b3817f44bf4d48e18e11bc7.ctex"]
+source_file="res://Assets/Art/Soul of The Wall.png"
+dest_files=["res://.godot/imported/Soul of The Wall.png-6a1edbb3fc771da092d01c9eb0ded6bd.ctex"]
 
 [params]
 

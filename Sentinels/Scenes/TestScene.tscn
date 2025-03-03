@@ -14,9 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://dx7rsmma0wcne" path="res://Assets/Blocks/SmoothBrickEdge Bot.png" id="12_mn4f2"]
 [ext_resource type="Texture2D" uid="uid://cvpmrlnlcbomw" path="res://Assets/Blocks/SmoothBrickEdgeTOP.png" id="13_rtlrt"]
 [ext_resource type="Texture2D" uid="uid://lt7f6h1xg5ew" path="res://Assets/Blocks/Brick.png" id="14_tgocd"]
-[ext_resource type="Texture2D" uid="uid://cfcj4h1gxever" path="res://Assets/Grass (4).png" id="15_y10pb"]
-[ext_resource type="Texture2D" uid="uid://bdyx7sdyfl643" path="res://Assets/Grass (5).png" id="16_5r51g"]
-[ext_resource type="Texture2D" uid="uid://c6rljixbxyx1k" path="res://Assets/Grass w Flower.png" id="17_qnelw"]
+[ext_resource type="Texture2D" uid="uid://cfcj4h1gxever" path="res://Assets/Art/Grass (4).png" id="15_y10pb"]
+[ext_resource type="Texture2D" uid="uid://bdyx7sdyfl643" path="res://Assets/Art/Grass (5).png" id="16_5r51g"]
+[ext_resource type="Texture2D" uid="uid://c6rljixbxyx1k" path="res://Assets/Art/Grass w Flower.png" id="17_qnelw"]
 [ext_resource type="Texture2D" uid="uid://bngey5o6eifyu" path="res://Assets/Blocks/SmoothBrickFadedTestEdgeBOT.png" id="18_qhsoj"]
 [ext_resource type="Texture2D" uid="uid://yewayveaxtt6" path="res://Assets/Blocks/SmoothBrickFadedTestEdgeTOP.png" id="19_hyly2"]
 [ext_resource type="Texture2D" uid="uid://d14cypjfvgotd" path="res://Assets/Blocks/SmoothBrickCornerFaded (1).png" id="20_mrr6x"]
@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://cvd0vvnmp80d8" path="res://Scenes/Spike.tscn" id="28_j3gp2"]
 [ext_resource type="PackedScene" uid="uid://cnwaygvu8dyxh" path="res://Scenes/moving_saw.tscn" id="29_22oru"]
 [ext_resource type="PackedScene" uid="uid://tv71tsg7vf3x" path="res://Scenes/fan_wind_force.tscn" id="30_qp7xn"]
-[ext_resource type="Texture2D" uid="uid://dlg38qo87ym43" path="res://Assets/BlissBlue.png" id="31_6rwf6"]
+[ext_resource type="Texture2D" uid="uid://dlg38qo87ym43" path="res://Assets/Art/BlissBlue.png" id="31_6rwf6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w1cxn"]
 texture = ExtResource("2_gs5qi")
