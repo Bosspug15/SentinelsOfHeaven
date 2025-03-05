@@ -11,14 +11,15 @@ config_version=5
 [application]
 
 config/name="Sentinels Test"
-run/main_scene="res://Scenes/TestScene.tscn"
+run/main_scene="res://Scenes/TestLevels/FirstLevelTest.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=600
-window/size/viewport_height=600
+window/size/viewport_width=1000
+window/size/viewport_height=1000
 window/size/resizable=false
 
 [input]
@@ -48,4 +49,6 @@ RestartScene={
 
 textures/canvas_textures/default_texture_filter=0
 textures/lossless_compression/force_png=true
+textures/default_filters/use_nearest_mipmap_filter=true
 anti_aliasing/quality/msaa_2d=1
+textures/jitter_projection=true
