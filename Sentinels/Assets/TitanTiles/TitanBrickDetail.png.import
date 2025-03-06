@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4i1igdlc1q7x"
-path="res://.godot/imported/DarkColorPixel.png-5f44cd94f61fc3abfc37c7c7f9f2aecf.ctex"
+uid="uid://cjauv0dvvprcv"
+path="res://.godot/imported/TitanBrickDetail.png-877d3359383f4b61efbef0e771ff05a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/DarkColorPixel.png"
-dest_files=["res://.godot/imported/DarkColorPixel.png-5f44cd94f61fc3abfc37c7c7f9f2aecf.ctex"]
+source_file="res://Assets/TitanTiles/TitanBrickDetail.png"
+dest_files=["res://.godot/imported/TitanBrickDetail.png-877d3359383f4b61efbef0e771ff05a1.ctex"]
 
 [params]
 
