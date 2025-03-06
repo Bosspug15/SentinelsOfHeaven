@@ -1,10 +1,10 @@
 [gd_scene load_steps=63 format=3 uid="uid://fuddjn2qx3fh"]
 
 [ext_resource type="Texture2D" uid="uid://dk80h6vb66bh8" path="res://Assets/Blocks/Dirt.png" id="1_w803n"]
-[ext_resource type="Texture2D" uid="uid://c6rljixbxyx1k" path="res://Assets/Art/Grass w Flower.png" id="2_7xxsn"]
-[ext_resource type="Texture2D" uid="uid://bdyx7sdyfl643" path="res://Assets/Art/Grass (5).png" id="3_11150"]
+[ext_resource type="Texture2D" uid="uid://crstvceg6nleh" path="res://Assets/Art/Grass w Flower.png" id="2_7xxsn"]
+[ext_resource type="Texture2D" uid="uid://bdyx7sdyfl643" path="res://Assets/Art/Grass.png" id="3_11150"]
 [ext_resource type="Texture2D" uid="uid://bq5hwfas0qf7l" path="res://Assets/Blocks/SmoothBrickFadedTest (1).png" id="3_ex35w"]
-[ext_resource type="Texture2D" uid="uid://dh7ikcebcrsvq" path="res://Assets/Art/GrassFlipped.png" id="4_wm4f6"]
+[ext_resource type="Texture2D" path="res://Assets/Art/GrassFlipped.png" id="4_wm4f6"]
 [ext_resource type="Texture2D" uid="uid://d14cypjfvgotd" path="res://Assets/Blocks/SmoothBrickCornerFaded (1).png" id="5_sbq58"]
 [ext_resource type="Texture2D" uid="uid://dwi2q258srpmb" path="res://Assets/Blocks/SmoothBrickCornerRight (1).png" id="6_8ubol"]
 [ext_resource type="Texture2D" uid="uid://c81cfkh5j2n8a" path="res://Assets/Blocks/SmoothBrickCornerFaded.png" id="6_dcfex"]

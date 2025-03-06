@@ -18,9 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://dx7rsmma0wcne" path="res://Assets/Blocks/SmoothBrickEdge Bot.png" id="16_bbda7"]
 [ext_resource type="Texture2D" uid="uid://cvpmrlnlcbomw" path="res://Assets/Blocks/SmoothBrickEdgeTOP.png" id="17_k07dl"]
 [ext_resource type="Texture2D" uid="uid://lt7f6h1xg5ew" path="res://Assets/Blocks/Brick.png" id="18_toydh"]
-[ext_resource type="Texture2D" uid="uid://cfcj4h1gxever" path="res://Assets/Art/Grass (4).png" id="19_w7xve"]
-[ext_resource type="Texture2D" uid="uid://bdyx7sdyfl643" path="res://Assets/Art/Grass (5).png" id="20_banng"]
-[ext_resource type="Texture2D" uid="uid://c6rljixbxyx1k" path="res://Assets/Art/Grass w Flower.png" id="21_45tcp"]
+[ext_resource type="Texture2D" uid="uid://bdyx7sdyfl643" path="res://Assets/Art/Grass.png" id="20_banng"]
+[ext_resource type="Texture2D" uid="uid://crstvceg6nleh" path="res://Assets/Art/Grass w Flower.png" id="21_45tcp"]
 [ext_resource type="Texture2D" uid="uid://bngey5o6eifyu" path="res://Assets/Blocks/SmoothBrickFadedTestEdgeBOT.png" id="22_31p4b"]
 [ext_resource type="Texture2D" uid="uid://yewayveaxtt6" path="res://Assets/Blocks/SmoothBrickFadedTestEdgeTOP.png" id="23_m8c6r"]
 [ext_resource type="Texture2D" uid="uid://d14cypjfvgotd" path="res://Assets/Blocks/SmoothBrickCornerFaded (1).png" id="24_8as8k"]
@@ -159,9 +158,10 @@ texture = ExtResource("18_toydh")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.9099, -16.0867, 15.5564, -15.9099, 15.25, 16.25, -15.75, 16.25)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1rdy2"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avbji"]
-texture = ExtResource("19_w7xve")
-0:0/size_in_atlas = Vector2i(2, 1)
+texture = SubResource("CompressedTexture2D_1rdy2")
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pmvwv"]
