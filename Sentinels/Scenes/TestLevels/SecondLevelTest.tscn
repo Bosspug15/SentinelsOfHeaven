@@ -104,11 +104,9 @@ texture = ExtResource("15_sjd4h")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.9099, -16.0867, 15.5564, -15.9099, 15.25, 16.25, -15.75, 16.25)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1rdy2"]
-load_path = "res://.godot/imported/Grass (4).png-cc09ceebccc4be8e14ce2cd444ce9ec2.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avbji"]
 texture = SubResource("CompressedTexture2D_1rdy2")
-0:0/size_in_atlas = Vector2i(2, 1)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pmvwv"]
