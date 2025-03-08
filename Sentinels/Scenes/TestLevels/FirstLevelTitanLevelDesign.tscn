@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://b062doklaew5q"]
+[gd_scene load_steps=102 format=4 uid="uid://b062doklaew5q"]
 
 [ext_resource type="PackedScene" uid="uid://cvv6wgu78lm73" path="res://Scenes/player.tscn" id="1_oflta"]
 [ext_resource type="PackedScene" uid="uid://cvd0vvnmp80d8" path="res://Scenes/Spike.tscn" id="2_45xc3"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://beefi5oriamcf" path="res://Assets/TitanTiles/TitanOutlineVerticalEndTop.png" id="38_ypcmv"]
 [ext_resource type="Texture2D" uid="uid://cvagqcnn1mbv4" path="res://Assets/TitanTiles/TitanOutlineSolo.png" id="39_3ba8x"]
 [ext_resource type="Texture2D" uid="uid://befo6f5fq55om" path="res://Assets/Animations/ScreenFade.png" id="41_e6hru"]
+[ext_resource type="Texture2D" uid="uid://w41q8o8fx5et" path="res://Assets/Animations/ScreenFadeIn.png" id="41_n8nst"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w1cxn"]
 texture = ExtResource("3_e0vhv")
@@ -280,6 +281,46 @@ sources/9 = SubResource("TileSetAtlasSource_2r306")
 sources/1 = SubResource("TileSetAtlasSource_6stx4")
 sources/3 = SubResource("TileSetAtlasSource_x65e1")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u36f7"]
+atlas = ExtResource("41_n8nst")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me1aq"]
+atlas = ExtResource("41_n8nst")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1atg"]
+atlas = ExtResource("41_n8nst")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3ags"]
+atlas = ExtResource("41_n8nst")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjjmx"]
+atlas = ExtResource("41_n8nst")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ivu"]
+atlas = ExtResource("41_n8nst")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uc7v"]
+atlas = ExtResource("41_n8nst")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoaxh"]
+atlas = ExtResource("41_n8nst")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cma27"]
+atlas = ExtResource("41_n8nst")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whkyg"]
+atlas = ExtResource("41_n8nst")
+region = Rect2(288, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_srswp"]
 atlas = ExtResource("41_e6hru")
 region = Rect2(0, 0, 32, 32)
@@ -320,6 +361,41 @@ region = Rect2(256, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_u36f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me1aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1atg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3ags")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjjmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ivu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uc7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yoaxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cma27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whkyg")
+}],
+"loop": false,
+"name": &"FadeIn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_srswp")
 }, {
 "duration": 1.0,
@@ -346,7 +422,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_swubg")
 }],
-"loop": true,
+"loop": false,
 "name": &"FadeOut",
 "speed": 12.0
 }]
@@ -1008,7 +1084,6 @@ position = Vector2(-843, 44)
 scale = Vector2(2.959, 2.959)
 sprite_frames = SubResource("SpriteFrames_lv6h5")
 animation = &"FadeOut"
-autoplay = "FadeOut"
 
 [node name="FadeOutTest2" type="AnimatedSprite2D" parent="FadeOutTest9"]
 z_index = 10
@@ -1065,3 +1140,5 @@ position = Vector2(253.5, 0)
 sprite_frames = SubResource("SpriteFrames_lv6h5")
 animation = &"FadeOut"
 autoplay = "FadeOut"
+
+[node name="FadeAnimation" type="Node" parent="."]
