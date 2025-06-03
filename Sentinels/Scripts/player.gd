@@ -19,13 +19,18 @@ var death_pos = Vector2(-806, 54)
 @onready var landing_sound = $landingSound
 @onready var jumping_sound = $jumpingSound
 @onready var coyote_timer = $CoyoteTimer
+@onready var fade_sprite = $FadeOut
+@onready var fade_timer = $FadeTimer
 
 @onready var is_Dead = false
 @onready var dust = preload("res://Scenes/dust.tscn")
 var isGrounded = true
 
+func _ready() -> void:
+	fade_sprite.play("FadeOut")
+
 func _physics_process(delta):
-	
+		
 	if isGrounded == false and is_on_floor() == true:
 		coyote_timer.start()
 		var instance = dust.instantiate()
@@ -80,6 +85,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
+	
 func _input(event):
 	if event.is_action_released("jump"):
 		if velocity.y < 0:
@@ -91,7 +97,7 @@ func die() -> void:
 	velocity.y = 0
 	wind_Push = 1
 	animated_sprite.play("Death")
-	
+	fade_timer.start()
 
 
 func _on_fan_wind_force_body_entered(_body):
@@ -101,3 +107,7 @@ func _on_fan_wind_force_body_entered(_body):
 func _on_fan_wind_force_body_exited(_body):
 	wind_Push = 1
 	
+
+
+func _on_fade_timer_timeout() -> void:
+	fade_sprite.play("FadeIn")
