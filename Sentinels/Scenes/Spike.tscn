@@ -3,9 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bily3x8yvo1m" path="res://Assets/Art/SpikeSmall.png" id="1_vs11e"]
 [ext_resource type="PackedScene" uid="uid://bfyw6ffhn213d" path="res://Scenes/killzone.tscn" id="2_bls7b"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1qbt8"]
-radius = 11.0
-height = 24.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4lnb"]
+size = Vector2(18, 24)
 
 [node name="Spike" type="Node2D"]
 
@@ -16,5 +15,5 @@ texture = ExtResource("1_vs11e")
 position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_1qbt8")
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_f4lnb")
