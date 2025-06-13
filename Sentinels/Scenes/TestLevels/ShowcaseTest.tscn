@@ -263,7 +263,7 @@ sources/25 = SubResource("TileSetAtlasSource_ifolq")
 
 [node name="Player" parent="." groups=["ghostTrack"] instance=ExtResource("1_562j6")]
 z_index = 1
-position = Vector2(-415, 56)
+position = Vector2(-166, -534)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(3, -38)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=4 uid="uid://b062doklaew5q"]
+[gd_scene load_steps=88 format=4 uid="uid://b062doklaew5q"]
 
 [ext_resource type="PackedScene" uid="uid://cvv6wgu78lm73" path="res://Scenes/player.tscn" id="1_oflta"]
 [ext_resource type="PackedScene" uid="uid://cvd0vvnmp80d8" path="res://Scenes/Spike.tscn" id="2_45xc3"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://beefi5oriamcf" path="res://Assets/TitanTiles/TitanOutlineVerticalEndTop.png" id="38_ypcmv"]
 [ext_resource type="Texture2D" uid="uid://cvagqcnn1mbv4" path="res://Assets/TitanTiles/TitanOutlineSolo.png" id="39_3ba8x"]
 [ext_resource type="Shader" path="res://Assets/Art/screen_effect.gdshader" id="41_4477l"]
+[ext_resource type="Shader" path="res://Assets/Art/CA.gdshader" id="42_40c85"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w1cxn"]
 texture = ExtResource("3_e0vhv")
@@ -282,10 +283,32 @@ sources/3 = SubResource("TileSetAtlasSource_x65e1")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6qb22"]
 shader = ExtResource("41_4477l")
+shader_parameter/ca_strength = 1.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g874q"]
+shader = ExtResource("42_40c85")
+shader_parameter/ca_strength = 2.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_bdmb7"]
+material = SubResource("ShaderMaterial_g874q")
 size = Vector2(1280, 720)
 center_offset = Vector3(640, 360, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcr3l"]
+shader = ExtResource("42_40c85")
+shader_parameter/ca_strength = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_y6eg8"]
+size = Vector2(1280, 720)
+center_offset = Vector3(640, 360, 0)
+
+[sub_resource type="Environment" id="Environment_yuiry"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.62
+glow_strength = 0.71
+glow_bloom = 0.57
+glow_blend_mode = 0
 
 [node name="TestScene" type="Node2D"]
 
@@ -432,8 +455,16 @@ collision_enabled = false
 
 [node name="FadeAnimation" type="Node" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CRTEffect" type="CanvasLayer" parent="."]
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CRTEffect"]
 material = SubResource("ShaderMaterial_6qb22")
 mesh = SubResource("QuadMesh_bdmb7")
+
+[node name="CA" type="MeshInstance2D" parent="CRTEffect"]
+visible = false
+material = SubResource("ShaderMaterial_fcr3l")
+mesh = SubResource("QuadMesh_y6eg8")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yuiry")

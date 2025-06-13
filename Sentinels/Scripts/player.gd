@@ -12,9 +12,6 @@ var cut_jump_height: float = 0.5
 
 var wind_Push = 1
 
-#CHANGE THIS TO A BETTER IMPLEMENTATION BECAUSE IT WONT WORK IN OTHER SCENES
-var death_pos = Vector2(-806, 54)
-
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var landing_sound = $landingSound
 @onready var jumping_sound = $jumpingSound
@@ -30,6 +27,9 @@ func _ready() -> void:
 	fade_sprite.play("FadeOut")
 
 func _physics_process(delta):
+	if is_Dead:
+		velocity.y = 0
+		gravity = 0
 		
 	if isGrounded == false and is_on_floor() == true:
 		coyote_timer.start()
