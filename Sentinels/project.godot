@@ -24,6 +24,10 @@ window/size/mode=2
 window/size/always_on_top=true
 window/stretch/mode="viewport"
 
+[global_group]
+
+Player="the player"
+
 [input]
 
 jump={

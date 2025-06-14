@@ -2,18 +2,11 @@ shader_type canvas_item;
 render_mode unshaded, skip_vertex_transform;
 
 const float curvature = 8.0;
-const float vignette_multipler = 1.0;
-
-uniform float ca_strength = 2.0;
+const float vignette_multipler = 1.2;
 
 uniform sampler2D screen_texture: hint_screen_texture;
 
 void fragment() {
-	vec4 uv;
-	vec2 ca_offset = vec2(ca_strength, 0.0) * SCREEN_PIXEL_SIZE;
-	float red = texture(screen_texture, SCREEN_UV - ca_offset).r;
-	float green = texture(screen_texture, SCREEN_UV).g;
-	float blue = texture(screen_texture, SCREEN_UV + ca_offset).b;
 	
 	vec2 centered_uv = (SCREEN_UV * 2.0 - 1.0);
 	vec2 uv_offset = centered_uv.yx / curvature;

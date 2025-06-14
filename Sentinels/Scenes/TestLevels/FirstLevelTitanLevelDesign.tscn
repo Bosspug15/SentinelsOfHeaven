@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=4 uid="uid://b062doklaew5q"]
+[gd_scene load_steps=90 format=4 uid="uid://b062doklaew5q"]
 
 [ext_resource type="PackedScene" uid="uid://cvv6wgu78lm73" path="res://Scenes/player.tscn" id="1_oflta"]
 [ext_resource type="PackedScene" uid="uid://cvd0vvnmp80d8" path="res://Scenes/Spike.tscn" id="2_45xc3"]
@@ -42,6 +42,8 @@
 [ext_resource type="Texture2D" uid="uid://cvagqcnn1mbv4" path="res://Assets/TitanTiles/TitanOutlineSolo.png" id="39_3ba8x"]
 [ext_resource type="Shader" path="res://Assets/Art/screen_effect.gdshader" id="41_4477l"]
 [ext_resource type="Shader" path="res://Assets/Art/CA.gdshader" id="42_40c85"]
+[ext_resource type="Script" path="res://Scripts/checkpoint_manager.gd" id="43_4tgtf"]
+[ext_resource type="PackedScene" uid="uid://bri62h7i1loud" path="res://Scenes/checkpoint_area.tscn" id="44_k5o38"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w1cxn"]
 texture = ExtResource("3_e0vhv")
@@ -283,7 +285,6 @@ sources/3 = SubResource("TileSetAtlasSource_x65e1")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6qb22"]
 shader = ExtResource("41_4477l")
-shader_parameter/ca_strength = 1.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g874q"]
 shader = ExtResource("42_40c85")
@@ -459,6 +460,7 @@ collision_enabled = false
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CRTEffect"]
 material = SubResource("ShaderMaterial_6qb22")
+position = Vector2(-1, 0)
 mesh = SubResource("QuadMesh_bdmb7")
 
 [node name="CA" type="MeshInstance2D" parent="CRTEffect"]
@@ -468,3 +470,10 @@ mesh = SubResource("QuadMesh_y6eg8")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yuiry")
+
+[node name="CheckpointManager" type="Node" parent="."]
+script = ExtResource("43_4tgtf")
+
+[node name="CheckpointArea" parent="CheckpointManager" instance=ExtResource("44_k5o38")]
+position = Vector2(1, 24)
+scale = Vector2(2.5, 2.5)

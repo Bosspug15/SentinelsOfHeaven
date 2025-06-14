@@ -18,18 +18,21 @@ var wind_Push = 1
 @onready var coyote_timer = $CoyoteTimer
 @onready var fade_sprite = $FadeOut
 @onready var fade_timer = $FadeTimer
+@onready var fade_in_timer = $FadeInTimer
 
 @onready var is_Dead = false
 @onready var dust = preload("res://Scenes/dust.tscn")
 var isGrounded = true
 
 func _ready() -> void:
-	fade_sprite.play("FadeOut")
+	fade_sprite.play("FadeOutTest")
 
 func _physics_process(delta):
-	if is_Dead:
-		velocity.y = 0
-		gravity = 0
+	#if is_Dead:
+		#velocity.y = 0
+		#gravity = 0
+	#else:
+		#pass
 		
 	if isGrounded == false and is_on_floor() == true:
 		coyote_timer.start()
@@ -74,7 +77,7 @@ func _physics_process(delta):
 	else:
 		if velocity.y > 0 && is_Dead == false:
 			animated_sprite.play("Fall")
-		elif is_Dead == false:
+		elif velocity.y < 0 && is_Dead == false:
 			animated_sprite.play("Jump")
 	
 	# apply movement
@@ -95,9 +98,14 @@ func die() -> void:
 	is_Dead = true
 	velocity.x = 0
 	velocity.y = 0
+	gravity = 0
 	wind_Push = 1
 	animated_sprite.play("Death")
 	fade_timer.start()
+	
+func playerReset() -> void:
+	gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+	is_Dead = false
 
 
 func _on_fan_wind_force_body_entered(_body):
@@ -108,6 +116,12 @@ func _on_fan_wind_force_body_exited(_body):
 	wind_Push = 1
 	
 
-
 func _on_fade_timer_timeout() -> void:
-	fade_sprite.play("FadeIn")
+	fade_sprite.play("FadeInTest")
+	fade_in_timer.start()
+	
+
+#YO THIS SHIT ASS BRO PLEASE FIX LATER, THESE CHECKPOINTS ARE NOT WORKING YO
+func _on_fade_in_timer_timeout() -> void:
+	playerReset()
+	fade_sprite.play("FadeOutTest")
