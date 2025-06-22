@@ -781,12 +781,10 @@ script = ExtResource("1_qu07d")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_ev1cv")
-animation = &"Death"
+animation = &"Run"
 autoplay = "Idle"
-frame = 11
-frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(0, -30.5)
 shape = SubResource("RectangleShape2D_3l760")
 
@@ -811,6 +809,7 @@ wait_time = 0.9
 one_shot = true
 
 [node name="FadeOut" type="AnimatedSprite2D" parent="."]
+visible = false
 z_index = 10
 position = Vector2(-1, -31)
 scale = Vector2(15, 15)
@@ -819,10 +818,10 @@ animation = &"FadeInTest"
 frame = 13
 frame_progress = 0.457731
 
-[node name="FadeBorder" type="Sprite2D" parent="."]
+[node name="FadeBorder" type="Sprite2D" parent="FadeOut"]
 z_index = 5
-position = Vector2(0, -30)
-scale = Vector2(14, 14)
+position = Vector2(0.0666667, 0.0666668)
+scale = Vector2(0.933333, 0.933333)
 texture = ExtResource("14_63vqg")
 
 [node name="FadeInTimer" type="Timer" parent="."]
