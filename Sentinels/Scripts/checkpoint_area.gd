@@ -2,20 +2,30 @@ extends Area2D
 
 
 @onready var checkpoint_manager = get_parent().get_parent().get_node("CheckpointManager")
+@onready var player = get_parent().get_parent().get_node("Player")
 @onready var respawn_point = $RespawnPoint
+@onready var checkpoint_spark = $AnimatedSprite2D
+@onready var anim_offset = $AnimOffset
 
-#YO THIS SHIT ASS BRO PLEASE FIX LATER, THESE CHECKPOINTS ARE NOT WORKING YO
-# Called when the node enters the scene tree for the first time.
+var hasChecked = false
+
+# RESPAWN POINT IS BASED ON 0,0 IN SCENE
 func _ready() -> void:
-	pass
+	checkpoint_manager.last_location = player.position
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		checkpoint_manager.last_location = respawn_point.position
+		if !hasChecked:
+			body.setCheckpoint()
+			anim_offset.start()
+			checkpoint_manager.last_location = respawn_point.position
+			hasChecked = true
 
-	
+func _on_anim_offset_timeout() -> void:
+	checkpoint_spark.play("CheckpointForm")
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	checkpoint_spark.play("Sparkle")

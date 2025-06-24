@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://cvv6wgu78lm73"]
+[gd_scene load_steps=133 format=3 uid="uid://cvv6wgu78lm73"]
 
 [ext_resource type="Texture2D" uid="uid://fc3u85kjj2mk" path="res://Assets/Animations/BasicWalkUpdate.png" id="1_cuj85"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_qu07d"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://l0dm5m3btg0s" path="res://Assets/Animations/JumpUp.png" id="3_mclxe"]
 [ext_resource type="Texture2D" uid="uid://cc2lwf6wywos5" path="res://Assets/Animations/BasicWalkUpdate4Frame (1).png" id="4_davsm"]
 [ext_resource type="AudioStream" uid="uid://davvp3n47sbwp" path="res://Assets/Audio/LandingSoundBass.wav" id="7_bv8uc"]
+[ext_resource type="Texture2D" uid="uid://wy627ctnj441" path="res://Assets/Animations/CheckpointSet-Sheet.png" id="7_mufdf"]
 [ext_resource type="Texture2D" uid="uid://bhurygnxhbaf4" path="res://Assets/Animations/DeathAnimRev-Sheet.png" id="7_u665y"]
 [ext_resource type="AudioStream" uid="uid://4kskrb54tb2u" path="res://Assets/Audio/JumpSound.wav" id="8_66tfw"]
 [ext_resource type="Texture2D" uid="uid://w41q8o8fx5et" path="res://Assets/Animations/ScreenFadeIn.png" id="9_4ax3h"]
@@ -90,6 +91,62 @@ region = Rect2(64, 0, 32, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_qtn40"]
 atlas = ExtResource("4_davsm")
 region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7noiu"]
+atlas = ExtResource("7_mufdf")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drsra"]
+atlas = ExtResource("7_mufdf")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvunw"]
+atlas = ExtResource("7_mufdf")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp3ss"]
+atlas = ExtResource("7_mufdf")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ii2xt"]
+atlas = ExtResource("7_mufdf")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbemn"]
+atlas = ExtResource("7_mufdf")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvc8t"]
+atlas = ExtResource("7_mufdf")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8afgg"]
+atlas = ExtResource("7_mufdf")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t87tl"]
+atlas = ExtResource("7_mufdf")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntt6p"]
+atlas = ExtResource("7_mufdf")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjq5a"]
+atlas = ExtResource("7_mufdf")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj1cl"]
+atlas = ExtResource("7_mufdf")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o4np"]
+atlas = ExtResource("7_mufdf")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxrg5"]
+atlas = ExtResource("7_mufdf")
+region = Rect2(832, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_elo4h"]
 atlas = ExtResource("2_ka8xp")
@@ -226,6 +283,53 @@ animations = [{
 "loop": true,
 "name": &"Run",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_7noiu")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_drsra")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_wvunw")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_fp3ss")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ii2xt")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_cbemn")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_nvc8t")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_8afgg")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_t87tl")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ntt6p")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_vjq5a")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_aj1cl")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_8o4np")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxrg5")
+}],
+"loop": true,
+"name": &"SetCheckpoint",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -781,8 +885,10 @@ script = ExtResource("1_qu07d")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_ev1cv")
-animation = &"Run"
+animation = &"SetCheckpoint"
 autoplay = "Idle"
+frame = 13
+frame_progress = 0.815875
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(0, -30.5)
@@ -828,6 +934,10 @@ texture = ExtResource("14_63vqg")
 wait_time = 1.5
 one_shot = true
 
+[node name="CheckpointTimer" type="Timer" parent="."]
+wait_time = 1.5
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]
 [connection signal="timeout" from="FadeInTimer" to="." method="_on_fade_in_timer_timeout"]
+[connection signal="timeout" from="CheckpointTimer" to="." method="_on_checkpoint_timer_timeout"]
