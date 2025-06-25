@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://cvv6wgu78lm73"]
+[gd_scene load_steps=134 format=3 uid="uid://cvv6wgu78lm73"]
 
 [ext_resource type="Texture2D" uid="uid://fc3u85kjj2mk" path="res://Assets/Animations/BasicWalkUpdate.png" id="1_cuj85"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_qu07d"]
@@ -6,13 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://3626gleyg5oo" path="res://Assets/Animations/dissolveFInal (2).png" id="2_ka8xp"]
 [ext_resource type="Texture2D" uid="uid://l0dm5m3btg0s" path="res://Assets/Animations/JumpUp.png" id="3_mclxe"]
 [ext_resource type="Texture2D" uid="uid://cc2lwf6wywos5" path="res://Assets/Animations/BasicWalkUpdate4Frame (1).png" id="4_davsm"]
-[ext_resource type="AudioStream" uid="uid://davvp3n47sbwp" path="res://Assets/Audio/LandingSoundBass.wav" id="7_bv8uc"]
 [ext_resource type="Texture2D" uid="uid://wy627ctnj441" path="res://Assets/Animations/CheckpointSet-Sheet.png" id="7_mufdf"]
 [ext_resource type="Texture2D" uid="uid://bhurygnxhbaf4" path="res://Assets/Animations/DeathAnimRev-Sheet.png" id="7_u665y"]
-[ext_resource type="AudioStream" uid="uid://4kskrb54tb2u" path="res://Assets/Audio/JumpSound.wav" id="8_66tfw"]
 [ext_resource type="Texture2D" uid="uid://w41q8o8fx5et" path="res://Assets/Animations/ScreenFadeIn.png" id="9_4ax3h"]
+[ext_resource type="AudioStream" uid="uid://cbw4378wxduks" path="res://Assets/Audio/LandSFX.wav" id="9_vh58j"]
 [ext_resource type="Texture2D" uid="uid://cfnt66fee8ko2" path="res://Assets/Animations/ScreenFadeOut.png" id="10_8u3lg"]
+[ext_resource type="AudioStream" uid="uid://bf7drwmn0vvq5" path="res://Assets/Audio/JumpSFX.wav" id="10_y5bic"]
 [ext_resource type="Texture2D" uid="uid://bxum0ojje8ijw" path="res://Assets/Animations/OGScreenFadeIn-Sheet.png" id="11_a5s52"]
+[ext_resource type="AudioStream" uid="uid://qvb3irikqgju" path="res://Assets/Audio/DeathSFX.wav" id="11_ftmri"]
 [ext_resource type="Texture2D" uid="uid://b4g25txu8lnwx" path="res://Assets/Animations/OGScreenFade-Sheet.png" id="12_2jumr"]
 [ext_resource type="Texture2D" uid="uid://c7ygxpwdhx1yb" path="res://Assets/Animations/OGScreenFadeBorder-Sheet.png" id="14_63vqg"]
 
@@ -899,11 +900,15 @@ position = Vector2(3, -40)
 scale = Vector2(2.5442, 2.5442)
 
 [node name="landingSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_bv8uc")
-volume_db = 8.0
+stream = ExtResource("9_vh58j")
+volume_db = 2.0
 
 [node name="jumpingSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_66tfw")
+stream = ExtResource("10_y5bic")
+volume_db = 2.0
+
+[node name="deathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_ftmri")
 volume_db = 5.0
 
 [node name="CoyoteTimer" type="Timer" parent="."]
@@ -915,7 +920,6 @@ wait_time = 0.9
 one_shot = true
 
 [node name="FadeOut" type="AnimatedSprite2D" parent="."]
-visible = false
 z_index = 10
 position = Vector2(-1, -31)
 scale = Vector2(15, 15)
@@ -936,6 +940,7 @@ one_shot = true
 
 [node name="CheckpointTimer" type="Timer" parent="."]
 wait_time = 1.5
+one_shot = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]

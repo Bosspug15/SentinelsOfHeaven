@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=4 uid="uid://b062doklaew5q"]
+[gd_scene load_steps=118 format=4 uid="uid://b062doklaew5q"]
 
 [ext_resource type="PackedScene" uid="uid://cvv6wgu78lm73" path="res://Scenes/player.tscn" id="1_oflta"]
 [ext_resource type="PackedScene" uid="uid://cvd0vvnmp80d8" path="res://Scenes/Spike.tscn" id="2_45xc3"]
@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://d2mynq2p1kv23" path="res://Assets/Blocks/SmoothBrickCornerRight (2).png" id="25_jpuga"]
 [ext_resource type="Texture2D" uid="uid://cpvgrmn72pu86" path="res://Assets/Blocks/SmoothBrickCornerRight.png" id="26_7hmta"]
 [ext_resource type="Texture2D" uid="uid://dwi2q258srpmb" path="res://Assets/Blocks/SmoothBrickCornerRight (1).png" id="27_2p0kf"]
-[ext_resource type="AudioStream" uid="uid://c6jn1efxkftxd" path="res://Assets/Audio/SlowedAmbianceToH.wav" id="28_23476"]
+[ext_resource type="AudioStream" uid="uid://cxfyyvif4qwly" path="res://Assets/Audio/AmbientWind.wav" id="28_hebte"]
 [ext_resource type="Texture2D" uid="uid://dlg38qo87ym43" path="res://Assets/Art/BlissBlue.png" id="29_w0xmy"]
 [ext_resource type="Texture2D" uid="uid://dt3dwjo83t6yt" path="res://Assets/Art/Soul of The Wall.png" id="30_3cb08"]
 [ext_resource type="Texture2D" uid="uid://c3ls4wvbf1ybq" path="res://Assets/Art/SavePoint.png" id="31_83ira"]
@@ -51,6 +51,7 @@
 [ext_resource type="Texture2D" uid="uid://c2t1hbje0sdvn" path="res://Assets/Animations/MentorBirdFly-Sheet.png" id="46_fy1wr"]
 [ext_resource type="Texture2D" uid="uid://dkp16mnx6oo26" path="res://Assets/Art/SecretStatue.png" id="48_rvxke"]
 [ext_resource type="PackedScene" uid="uid://di6r3noyuixc8" path="res://Scenes/SecretSparkle.tscn" id="48_ufb81"]
+[ext_resource type="Texture2D" uid="uid://bdrmgd03ysvrp" path="res://Assets/Animations/1stSecretOrb-Sheet.png" id="52_xe1xb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w1cxn"]
 texture = ExtResource("3_e0vhv")
@@ -407,11 +408,61 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6owve"]
+atlas = ExtResource("52_xe1xb")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icuk0"]
+atlas = ExtResource("52_xe1xb")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih2gb"]
+atlas = ExtResource("52_xe1xb")
+region = Rect2(68, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qol0u"]
+atlas = ExtResource("52_xe1xb")
+region = Rect2(102, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dn6o"]
+atlas = ExtResource("52_xe1xb")
+region = Rect2(136, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c12jx"]
+atlas = ExtResource("52_xe1xb")
+region = Rect2(170, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ca8ad"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6owve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icuk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih2gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qol0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dn6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c12jx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="TestScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_oflta")]
 z_index = 1
-position = Vector2(-547, 63)
+position = Vector2(-575, 28)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(3, -38)
@@ -513,7 +564,7 @@ layer_4/tile_data = PackedInt32Array(-2555898, 2, 0, -2555897, 2, 0, -2359321, 2
 
 [node name="PlaceHolderAmbience" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-304, -280)
-stream = ExtResource("28_23476")
+stream = ExtResource("28_hebte")
 autoplay = true
 max_distance = 10000.0
 panning_strength = 0.0
@@ -606,3 +657,18 @@ texture = ExtResource("48_rvxke")
 [node name="SecretSparkle" parent="." instance=ExtResource("48_ufb81")]
 position = Vector2(448, -1216)
 frame_progress = 0.205795
+
+[node name="SecretOrbStandIN" type="AnimatedSprite2D" parent="."]
+position = Vector2(-656, -16)
+sprite_frames = SubResource("SpriteFrames_ca8ad")
+autoplay = "default"
+frame = 2
+frame_progress = 0.0994779
+
+[node name="SecretOrbStandIN2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-620, -16)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_ca8ad")
+autoplay = "default"
+frame = 2
+frame_progress = 0.0994779

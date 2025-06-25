@@ -10,6 +10,7 @@ var wind_Push = 1
 @onready var fade_sprite = $FadeOut
 @onready var landing_sound = $landingSound
 @onready var jumping_sound = $jumpingSound
+@onready var death_sound = $deathSound
 @onready var coyote_timer = $CoyoteTimer
 @onready var fade_timer = $FadeTimer
 @onready var fade_in_timer = $FadeInTimer
@@ -83,16 +84,18 @@ func die() -> void:
 	gravity = 0
 	wind_Push = 1
 	animated_sprite.play("Death")
+	death_sound.play()
 	fade_timer.start()
 
 func playerReset() -> void:
 	gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 	is_Dead = false
 
+#Make it something that the player controls where they place, make it so they can
+#only place one when they are grounded
 func setCheckpoint() -> void:
-	print("lol")
 	velocity.x = 0
-	is_Dead = true
+	is_Dead = true #DONT DO THIS, MAKE IT WITH A DIFFERENT BOOL
 	animated_sprite.play("SetCheckpoint")
 	checkpoint_timer.start()
 
