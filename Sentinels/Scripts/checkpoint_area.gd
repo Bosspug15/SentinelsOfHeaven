@@ -1,8 +1,8 @@
 extends Area2D
 
 
-@onready var checkpoint_manager = get_parent().get_parent().get_node("CheckpointManager")
-@onready var player = get_parent().get_parent().get_node("Player")
+@onready var checkpoint_manager = get_parent().get_node("CheckpointManager")
+@onready var player = get_parent().get_node("Player")
 @onready var respawn_point = $RespawnPoint
 @onready var checkpoint_spark = $AnimatedSprite2D
 @onready var anim_offset = $AnimOffset
@@ -19,7 +19,7 @@ func _process(_delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		if !hasChecked:
-			body.setCheckpoint()
+			#body.setCheckpoint()
 			anim_offset.start()
 			checkpoint_manager.last_location = respawn_point.position
 			hasChecked = true

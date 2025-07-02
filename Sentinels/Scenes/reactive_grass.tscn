@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx27gslgdn5d4"]
+
+[ext_resource type="Script" path="res://Scripts/ReactiveGrass.gd" id="1_2tqgy"]
+[ext_resource type="Texture2D" uid="uid://d0tt720i3bq1b" path="res://Assets/Art/ReactiveGrass-export.png" id="2_2j04y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hskq2"]
+size = Vector2(32, 12)
+
+[node name="ReactiveGrass" type="Area2D"]
+script = ExtResource("1_2tqgy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2j04y")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_hskq2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

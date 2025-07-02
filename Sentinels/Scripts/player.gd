@@ -17,6 +17,7 @@ var wind_Push = 1
 @onready var checkpoint_timer = $CheckpointTimer
 @onready var is_Dead = false
 @onready var dust = preload("res://Scenes/dust.tscn")
+@onready var checkpoint = preload("res://Scenes/checkpoint_area.tscn")
 var isGrounded = true
 
 func _ready() -> void:
@@ -38,6 +39,11 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta * 0.89 * wind_Push
+
+	if Input.is_action_just_pressed("checkpoint"):
+		var checkpointInstance = checkpoint.instantiate()
+		get_parent().add_child(checkpointInstance)
+		setCheckpoint()
 
 	if Input.is_action_just_pressed("RestartScene"):
 		get_tree().reload_current_scene()
