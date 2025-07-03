@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=4 uid="uid://b062doklaew5q"]
+[gd_scene load_steps=93 format=4 uid="uid://b062doklaew5q"]
 
 [ext_resource type="PackedScene" uid="uid://cvv6wgu78lm73" path="res://Scenes/player.tscn" id="1_oflta"]
 [ext_resource type="PackedScene" uid="uid://cvd0vvnmp80d8" path="res://Scenes/Spike.tscn" id="2_45xc3"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://beefi5oriamcf" path="res://Assets/TitanTiles/TitanOutlineVerticalEndTop.png" id="38_ypcmv"]
 [ext_resource type="PackedScene" uid="uid://d0kxjbpcodqe4" path="res://Scenes/secret_orb.tscn" id="39_2omn4"]
 [ext_resource type="Texture2D" uid="uid://cvagqcnn1mbv4" path="res://Assets/TitanTiles/TitanOutlineSolo.png" id="39_3ba8x"]
+[ext_resource type="FontFile" uid="uid://blmwvrfolcudf" path="res://Assets/Fonts/Minecraftia-Regular.ttf" id="40_olwar"]
 [ext_resource type="Shader" path="res://Assets/Art/screen_effect.gdshader" id="41_4477l"]
 [ext_resource type="Texture2D" uid="uid://dt7dw7s3qvo44" path="res://Assets/Animations/Sparkle-Sheet.png" id="42_4sksq"]
 [ext_resource type="Shader" path="res://Assets/Art/CA.gdshader" id="42_40c85"]
@@ -351,11 +352,79 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_6cwfv"]
+resource_name = "testFadeInYay"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textTestCutscene/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textTestCutscene/ColorRect/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jatev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textTestCutscene/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textTestCutscene/ColorRect/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kfyrh"]
+_data = {
+"RESET": SubResource("Animation_jatev"),
+"testFadeInYay": SubResource("Animation_6cwfv")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_0emq6"]
+font = ExtResource("40_olwar")
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_offset = Vector2(2, 2)
+
 [node name="TestScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_oflta")]
 z_index = 1
-position = Vector2(-575, -1272)
+position = Vector2(-575, 3)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(3, -38)
@@ -619,6 +688,54 @@ position = Vector2(-720, 64.2)
 z_index = 5
 position = Vector2(-752, 64.2)
 
+[node name="ReactiveGrass76" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1136, 64.2)
+
+[node name="ReactiveGrass77" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1168, 64.2)
+
+[node name="ReactiveGrass78" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1200, 64.2)
+
+[node name="ReactiveGrass79" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1232, 64.2)
+
+[node name="ReactiveGrass80" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1264, 64.2)
+
+[node name="ReactiveGrass81" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1296, 64.2)
+
+[node name="ReactiveGrass82" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1328, 64.2)
+
+[node name="ReactiveGrass83" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1424, 64.2)
+
+[node name="ReactiveGrass84" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1456, 64.2)
+
+[node name="ReactiveGrass85" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1488, 64.2)
+
+[node name="ReactiveGrass86" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1360, 64.2)
+
+[node name="ReactiveGrass87" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1392, 64.2)
+
 [node name="ReactiveGrass17" parent="All Grass" instance=ExtResource("38_8agxp")]
 z_index = 5
 position = Vector2(-784, 64.2)
@@ -642,6 +759,18 @@ position = Vector2(-912, 64.2)
 [node name="ReactiveGrass22" parent="All Grass" instance=ExtResource("38_8agxp")]
 z_index = 5
 position = Vector2(-944, 64.2)
+
+[node name="ReactiveGrass73" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1040, 64.2)
+
+[node name="ReactiveGrass74" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1072, 64.2)
+
+[node name="ReactiveGrass75" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(-1104, 64.2)
 
 [node name="ReactiveGrass23" parent="All Grass" instance=ExtResource("38_8agxp")]
 z_index = 5
@@ -811,6 +940,70 @@ position = Vector2(816, 64.2)
 z_index = 5
 position = Vector2(784, 64.2)
 
+[node name="ReactiveGrass89" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1776, 64.2)
+
+[node name="ReactiveGrass90" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1744, 64.2)
+
+[node name="ReactiveGrass91" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1712, 64.2)
+
+[node name="ReactiveGrass92" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1680, 64.2)
+
+[node name="ReactiveGrass93" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1648, 64.2)
+
+[node name="ReactiveGrass94" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1616, 64.2)
+
+[node name="ReactiveGrass95" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1584, 64.2)
+
+[node name="ReactiveGrass96" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1552, 64.2)
+
+[node name="ReactiveGrass97" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1520, 64.2)
+
+[node name="ReactiveGrass98" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1488, 64.2)
+
+[node name="ReactiveGrass99" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1456, 64.2)
+
+[node name="ReactiveGrass100" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1424, 64.2)
+
+[node name="ReactiveGrass101" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1392, 64.2)
+
+[node name="ReactiveGrass102" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1360, 64.2)
+
+[node name="ReactiveGrass103" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1328, 64.2)
+
+[node name="ReactiveGrass104" parent="All Grass" instance=ExtResource("38_8agxp")]
+z_index = 5
+position = Vector2(1296, 64.2)
+
 [node name="ReactiveGrass65" parent="All Grass" instance=ExtResource("38_8agxp")]
 z_index = 5
 position = Vector2(752, 64.2)
@@ -845,3 +1038,31 @@ position = Vector2(528, 64.2)
 
 [node name="SecretOrb" parent="." instance=ExtResource("39_2omn4")]
 position = Vector2(-848, -1219)
+
+[node name="textTestCutscene" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kfyrh")
+}
+autoplay = "testFadeInYay"
+
+[node name="ColorRect" type="ColorRect" parent="textTestCutscene"]
+modulate = Color(1, 1, 1, 0)
+z_index = 10
+offset_left = -1172.0
+offset_top = -592.0
+offset_right = 108.0
+offset_bottom = 128.0
+pivot_offset = Vector2(640, 360)
+color = Color(0.0235294, 0.0980392, 0.129412, 0.588235)
+
+[node name="Label" type="Label" parent="textTestCutscene/ColorRect"]
+modulate = Color(1, 1, 1, 0)
+z_index = 11
+offset_left = 422.0
+offset_top = 247.0
+offset_right = 920.0
+offset_bottom = 379.0
+pivot_offset = Vector2(252, 68)
+text = "help, i canot poo...
+"
+label_settings = SubResource("LabelSettings_0emq6")

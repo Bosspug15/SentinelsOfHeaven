@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca7g3h8nir42i"]
+
+[sub_resource type="Animation" id="Animation_warrr"]
+resource_name = "textFadeInTest"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextCutscene/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextCutscene/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.966667, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cfkma"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextCutscene/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextCutscene/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yrsn1"]
+_data = {
+"RESET": SubResource("Animation_cfkma"),
+"textFadeInTest": SubResource("Animation_warrr")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_o0471"]
+font_size = 96
+
+[node name="TextCutscene" type="AnimationPlayer"]
+libraries = {
+"": SubResource("AnimationLibrary_yrsn1")
+}
+autoplay = "textFadeInTest"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1280.0
+offset_bottom = 720.0
+pivot_offset = Vector2(640, 360)
+color = Color(0.0235294, 0.0980392, 0.129412, 0.588235)
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 541.0
+offset_top = 280.0
+offset_right = 718.0
+offset_bottom = 412.0
+pivot_offset = Vector2(90, 66)
+text = "poo
+"
+label_settings = SubResource("LabelSettings_o0471")
