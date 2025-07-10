@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -440.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var cut_jump_height: float = 0.5
 var wind_Push = 1
+var in_cutscene = false
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var fade_sprite = $FadeOut
@@ -82,6 +83,12 @@ func _input(event):
 	if event.is_action_released("jump"):
 		if velocity.y < 0:
 			velocity.y *= cut_jump_height
+
+func inCutscene() -> void:
+	is_Dead = true
+
+func outCutscene() -> void:
+	is_Dead = false
 
 func die() -> void:
 	is_Dead = true
