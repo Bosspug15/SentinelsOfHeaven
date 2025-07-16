@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2tnvbrpgw84n"]
+
+[ext_resource type="Script" path="res://Scripts/dialogue_area.gd" id="1_7mus2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrnp7"]
+
+[node name="DialogueArea" type="Area2D"]
+process_mode = 3
+collision_layer = 5
+script = ExtResource("1_7mus2")
+
+[node name="DialogueHitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qrnp7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

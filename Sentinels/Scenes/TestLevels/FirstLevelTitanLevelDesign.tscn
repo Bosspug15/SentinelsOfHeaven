@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=4 uid="uid://b062doklaew5q"]
+[gd_scene load_steps=99 format=4 uid="uid://b062doklaew5q"]
 
 [ext_resource type="Script" path="res://Scripts/first_level_titan_level_designManager.gd" id="1_8tibr"]
 [ext_resource type="PackedScene" uid="uid://cvv6wgu78lm73" path="res://Scenes/player.tscn" id="1_oflta"]
@@ -40,6 +40,8 @@
 [ext_resource type="Texture2D" uid="uid://dt7dw7s3qvo44" path="res://Assets/Animations/Sparkle-Sheet.png" id="42_4sksq"]
 [ext_resource type="Shader" path="res://Assets/Art/CA.gdshader" id="42_40c85"]
 [ext_resource type="Script" path="res://Scripts/checkpoint_manager.gd" id="43_4tgtf"]
+[ext_resource type="PackedScene" uid="uid://balchj4mjh731" path="res://Scenes/dialogue_player.tscn" id="44_rwoh6"]
+[ext_resource type="PackedScene" uid="uid://c2tnvbrpgw84n" path="res://Scenes/dialogue_area.tscn" id="45_c0n3h"]
 [ext_resource type="Texture2D" uid="uid://c2t1hbje0sdvn" path="res://Assets/Animations/MentorBirdFly-Sheet.png" id="46_fy1wr"]
 [ext_resource type="PackedScene" uid="uid://di6r3noyuixc8" path="res://Scenes/SecretSparkle.tscn" id="48_ufb81"]
 [ext_resource type="Texture2D" uid="uid://bdrmgd03ysvrp" path="res://Assets/Animations/1stSecretOrb-Sheet.png" id="52_xe1xb"]
@@ -429,7 +431,7 @@ shadow_offset = Vector2(2, 2)
 [node name="TestScene" type="Node2D" node_paths=PackedStringArray("pause_target", "pause_menu")]
 script = ExtResource("1_8tibr")
 pause_target = NodePath("Pausable")
-pause_menu = NodePath("Pausable/Player/PauseMenu")
+pause_menu = NodePath("Pausable/Player/pause_menu")
 
 [node name="Pausable" type="Node2D" parent="."]
 process_mode = 1
@@ -438,6 +440,10 @@ process_mode = 1
 z_index = 1
 position = Vector2(-575, 3)
 
+[node name="pause_menu" parent="Pausable/Player" instance=ExtResource("39_1h8ln")]
+visible = false
+position = Vector2(-591, -593)
+
 [node name="Camera2D" type="Camera2D" parent="Pausable/Player"]
 position = Vector2(3, -38)
 zoom = Vector2(1.15, 1.15)
@@ -445,11 +451,6 @@ limit_left = -1080
 limit_right = 1316
 limit_bottom = 88
 position_smoothing_enabled = true
-
-[node name="PauseMenu" parent="Pausable/Player" instance=ExtResource("39_1h8ln")]
-process_mode = 2
-visible = false
-position = Vector2(-579, -591)
 
 [node name="all spikes" type="Node" parent="Pausable"]
 
@@ -593,6 +594,7 @@ collision_enabled = false
 [node name="FadeAnimation" type="Node" parent="Pausable"]
 
 [node name="CRTEffect" type="CanvasLayer" parent="Pausable"]
+layer = 2
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Pausable/CRTEffect"]
 material = SubResource("ShaderMaterial_6qb22")
@@ -1057,6 +1059,7 @@ position = Vector2(528, 64.2)
 position = Vector2(-848, -1219)
 
 [node name="testCusceneya" type="Area2D" parent="Pausable"]
+position = Vector2(0, 166)
 script = ExtResource("40_ahjhl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pausable/testCusceneya"]
@@ -1091,6 +1094,14 @@ pivot_offset = Vector2(252, 68)
 text = "help, i canot poo...
 "
 label_settings = SubResource("LabelSettings_0emq6")
+
+[node name="DialoguePlayer2" parent="." instance=ExtResource("44_rwoh6")]
+scene_text_file = "res://Assets/json/first_level.json"
+
+[node name="DialogueArea" parent="." instance=ExtResource("45_c0n3h")]
+position = Vector2(-496, 15)
+scale = Vector2(3, 3)
+dialog_key = "intro"
 
 [connection signal="body_entered" from="Pausable/testCusceneya" to="Pausable/testCusceneya" method="_on_body_entered"]
 [connection signal="animation_finished" from="Pausable/testCusceneya/textTestCutscene" to="Pausable/testCusceneya" method="_on_text_test_cutscene_animation_finished"]

@@ -74,12 +74,14 @@ libraries = {
 autoplay = "textFadeInTest"
 
 [node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_right = 1285.0
 offset_bottom = 725.0
 pivot_offset = Vector2(640, 360)
 color = Color(0.0235294, 0.0980392, 0.129412, 0.588235)
 
 [node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = 541.0
 offset_top = 280.0
 offset_right = 718.0
