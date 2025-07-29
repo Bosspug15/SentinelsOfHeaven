@@ -7,7 +7,8 @@ var cut_jump_height: float = 0.5
 var wind_Push = 1
 var in_cutscene = false
 
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var animated_sprite = $PlayerSprite
+@onready var mentor_bird_anim = $MentorBird
 @onready var fade_sprite = $FadeOut
 @onready var landing_sound = $landingSound
 @onready var jumping_sound = $jumpingSound
@@ -34,9 +35,6 @@ func _physics_process(delta):
 		get_parent().add_child(instance)
 	
 	isGrounded = is_on_floor()
-	
-	#if isGrounded && !is_on_floor():
-		#coyote_timer.start()
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta * 0.89 * wind_Push
@@ -125,6 +123,7 @@ func _on_fade_timer_timeout() -> void:
 func _on_fade_in_timer_timeout() -> void:
 	playerReset()
 	fade_sprite.play("FadeOutTest")
+	mentor_bird_anim.play("MentorBird")
 
 func _on_checkpoint_timer_timeout() -> void:
 	is_Dead = false

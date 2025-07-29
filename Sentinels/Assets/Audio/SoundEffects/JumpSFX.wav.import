@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bf7drwmn0vvq5"
-path="res://.godot/imported/JumpSFX.wav-28fd335280411d9250329c60fa1f4355.sample"
+path="res://.godot/imported/JumpSFX.wav-2610901f2cd900fa093f450606a422b7.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/JumpSFX.wav"
-dest_files=["res://.godot/imported/JumpSFX.wav-28fd335280411d9250329c60fa1f4355.sample"]
+source_file="res://Assets/Audio/SoundEffects/JumpSFX.wav"
+dest_files=["res://.godot/imported/JumpSFX.wav-2610901f2cd900fa093f450606a422b7.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cbw4378wxduks"
-path="res://.godot/imported/LandSFX.wav-afcfd426eb2202a6a0bd0941fee41b17.sample"
+path="res://.godot/imported/LandSFX.wav-001e426288293e94bba3b324f0a05561.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/LandSFX.wav"
-dest_files=["res://.godot/imported/LandSFX.wav-afcfd426eb2202a6a0bd0941fee41b17.sample"]
+source_file="res://Assets/Audio/SoundEffects/LandSFX.wav"
+dest_files=["res://.godot/imported/LandSFX.wav-001e426288293e94bba3b324f0a05561.sample"]
 
 [params]
 

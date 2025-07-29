@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://gf46n6dkf8aa"]
+[gd_scene load_steps=7 format=3 uid="uid://gf46n6dkf8aa"]
 
 [ext_resource type="FontFile" uid="uid://blmwvrfolcudf" path="res://Assets/Fonts/Minecraftia-Regular.ttf" id="1_53sq4"]
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_ptcgx"]
+[ext_resource type="AudioStream" uid="uid://cp7bt4qee6xlr" path="res://Assets/Audio/SoundEffects/PauseSFX.wav" id="2_pogx6"]
+[ext_resource type="AudioStream" uid="uid://bm2xrhkbl7li6" path="res://Assets/Audio/SoundEffects/UnPauseSFX.wav" id="4_ro8y6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5ka4r"]
 font = ExtResource("1_53sq4")
@@ -12,9 +14,12 @@ font = ExtResource("1_53sq4")
 font_size = 36
 
 [node name="PauseMenu" type="Node2D"]
-process_mode = 2
+process_mode = 3
 z_index = 15
 script = ExtResource("1_ptcgx")
+
+[node name="PauseSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_pogx6")
 
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 1285.0
@@ -44,6 +49,12 @@ pivot_offset = Vector2(122.5, 36.5)
 action_mode = 0
 flat = true
 
+[node name="UnderLine" type="ColorRect" parent="Exit"]
+offset_left = -6.0
+offset_top = 51.0
+offset_right = 126.0
+offset_bottom = 54.0
+
 [node name="Label" type="Label" parent="Exit"]
 layout_mode = 0
 offset_left = 19.0
@@ -53,13 +64,6 @@ offset_bottom = 170.0
 pivot_offset = Vector2(-733, -73)
 text = "Exit"
 label_settings = SubResource("LabelSettings_w2lti")
-
-[node name="UnderLine2" type="ColorRect" parent="Exit"]
-layout_mode = 0
-offset_left = -17.0
-offset_top = 72.0
-offset_right = 157.0
-offset_bottom = 78.0
 
 [node name="Resume" type="Button" parent="."]
 process_mode = 3
@@ -71,6 +75,10 @@ offset_bottom = 353.0
 pivot_offset = Vector2(122.5, 36.5)
 action_mode = 0
 flat = true
+
+[node name="UnPauseSFX" type="AudioStreamPlayer2D" parent="Resume"]
+position = Vector2(-540, -299)
+stream = ExtResource("4_ro8y6")
 
 [node name="Label" type="Label" parent="Resume"]
 layout_mode = 0
@@ -90,3 +98,4 @@ offset_right = 182.0
 offset_bottom = 54.0
 
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]

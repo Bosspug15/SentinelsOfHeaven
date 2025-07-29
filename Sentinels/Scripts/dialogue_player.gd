@@ -37,8 +37,13 @@ func finish():
 	animation_player.play("TotalFadeOut")
 	#text_label.text = ""
 	#background.visible = false
-	in_progress = false
-	get_tree().paused = false
+	self.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "TotalFadeOut":
+		in_progress = false
+		get_tree().paused = false
+		queue_free()
 
 func on_display_dialog(text_key):
 	if in_progress:
