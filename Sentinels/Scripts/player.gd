@@ -7,6 +7,9 @@ var cut_jump_height: float = 0.5
 var wind_Push = 1
 var in_cutscene = false
 
+@export var camera : Node
+
+@onready var player_collision = $PlayerCollision
 @onready var animated_sprite = $PlayerSprite
 @onready var mentor_bird_anim = $MentorBird
 @onready var fade_sprite = $FadeOut
@@ -90,6 +93,7 @@ func outCutscene() -> void:
 
 func die() -> void:
 	is_Dead = true
+	camera.process_mode = Node.PROCESS_MODE_DISABLED
 	velocity.x = 0
 	velocity.y = 0
 	gravity = 0
@@ -100,10 +104,12 @@ func die() -> void:
 
 func playerReset() -> void:
 	gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+	camera.process_mode = Node.PROCESS_MODE_INHERIT
 	is_Dead = false
 
 #Make it something that the player controls where they place, make it so they can
 #only place one when they are grounded
+#REMOVE THE ANIMATIONS, KEEP THE CHECKPOINT SETTING
 func setCheckpoint() -> void:
 	velocity.x = 0
 	is_Dead = true #DONT DO THIS, MAKE IT WITH A DIFFERENT BOOL

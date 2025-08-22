@@ -997,7 +997,7 @@ autoplay = "Idle"
 frame = 13
 frame_progress = 0.815875
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
+[node name="PlayerCollision" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(0, -30.5)
 shape = SubResource("RectangleShape2D_3l760")
 
@@ -1027,7 +1027,7 @@ one_shot = true
 
 [node name="FadeOut" type="AnimatedSprite2D" parent="."]
 visible = false
-z_index = 10
+z_index = 20
 position = Vector2(-1, -31)
 scale = Vector2(15, 15)
 sprite_frames = SubResource("SpriteFrames_wth8n")
@@ -1036,7 +1036,7 @@ frame = 13
 frame_progress = 0.457731
 
 [node name="FadeBorder" type="Sprite2D" parent="FadeOut"]
-z_index = 5
+z_index = 20
 position = Vector2(0.0666667, 0.0666668)
 scale = Vector2(0.933333, 0.933333)
 texture = ExtResource("14_63vqg")

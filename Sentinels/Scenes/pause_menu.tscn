@@ -50,6 +50,7 @@ action_mode = 0
 flat = true
 
 [node name="UnderLine" type="ColorRect" parent="Exit"]
+layout_mode = 0
 offset_left = -6.0
 offset_top = 51.0
 offset_right = 126.0
