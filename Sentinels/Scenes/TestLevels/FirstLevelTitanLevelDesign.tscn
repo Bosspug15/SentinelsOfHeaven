@@ -35,8 +35,8 @@
 [ext_resource type="PackedScene" uid="uid://gf46n6dkf8aa" path="res://Scenes/pause_menu.tscn" id="39_1h8ln"]
 [ext_resource type="PackedScene" uid="uid://d0kxjbpcodqe4" path="res://Scenes/secret_orb.tscn" id="39_2omn4"]
 [ext_resource type="Texture2D" uid="uid://cvagqcnn1mbv4" path="res://Assets/TitanTiles/TitanOutlineSolo.png" id="39_3ba8x"]
-[ext_resource type="Shader" path="res://Assets/Art/screen_effect.gdshader" id="41_4477l"]
-[ext_resource type="Shader" path="res://Assets/Art/CA.gdshader" id="42_40c85"]
+[ext_resource type="Shader" path="res://Assets/Shaders/screen_effect.gdshader" id="41_4477l"]
+[ext_resource type="Shader" path="res://Assets/Shaders/CA.gdshader" id="42_40c85"]
 [ext_resource type="Script" path="res://Scripts/checkpoint_manager.gd" id="43_4tgtf"]
 [ext_resource type="PackedScene" uid="uid://balchj4mjh731" path="res://Scenes/dialogue_player.tscn" id="44_rwoh6"]
 [ext_resource type="PackedScene" uid="uid://c2tnvbrpgw84n" path="res://Scenes/dialogue_area.tscn" id="45_c0n3h"]
@@ -239,10 +239,13 @@ center_offset = Vector3(640, 360, 0)
 [sub_resource type="Environment" id="Environment_yuiry"]
 background_mode = 3
 glow_enabled = true
-glow_intensity = 0.62
-glow_strength = 0.71
-glow_bloom = 0.57
+glow_levels/1 = 0.09
+glow_normalized = true
+glow_intensity = 1.75
+glow_strength = 0.6
+glow_bloom = 0.67
 glow_blend_mode = 0
+glow_hdr_threshold = 0.9
 
 [node name="TestScene" type="Node2D" node_paths=PackedStringArray("pause_target", "pause_menu", "player")]
 script = ExtResource("1_8tibr")
@@ -253,8 +256,9 @@ player = NodePath("Pausable/Player")
 [node name="Pausable" type="Node2D" parent="."]
 process_mode = 1
 
-[node name="Player" parent="Pausable" instance=ExtResource("1_oflta")]
+[node name="Player" parent="Pausable" node_paths=PackedStringArray("camera") instance=ExtResource("1_oflta")]
 position = Vector2(982, -1337)
+camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Pausable/Player"]
 position = Vector2(3, -38)

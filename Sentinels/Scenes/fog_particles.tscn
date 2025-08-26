@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpm2arftfb40v"]
+
+[ext_resource type="Texture2D" uid="uid://5doadth0hpiw" path="res://Assets/Art/CloudSimple.png" id="1_0yw61"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p447s"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(60, 1, 1)
+angle_min = -360.0
+angle_max = 360.0
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 50.0
+gravity = Vector3(0, -98, 0)
+linear_accel_min = -25.8
+linear_accel_max = 40.87
+radial_accel_min = -32.26
+radial_accel_max = -22.58
+
+[node name="FogParticles" type="GPUParticles2D"]
+modulate = Color(1, 1, 1, 0.45)
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_p447s")
+texture = ExtResource("1_0yw61")
+lifetime = 3.0
+randomness = 0.2

@@ -989,6 +989,7 @@ collision_layer = 5
 script = ExtResource("1_qu07d")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(1.2, 1.2, 1.2, 1)
 z_index = 2
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_ev1cv")
