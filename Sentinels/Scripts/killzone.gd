@@ -9,11 +9,15 @@ func _ready() -> void:
 	checkpoint_manager = get_parent().get_parent().get_parent().get_node("CheckpointManager")
 
 func _on_body_entered(_body):
-	_body.die()
-	timer.start()
+	if _body.is_in_group("Player"):
+		_body.die()
+		timer.start()
+		
 
 
 func _on_timer_timeout():
 	player.position = checkpoint_manager.last_location
+	self.monitoring = true
+	self.monitorable = true
 	#get_tree().reload_current_scene()
 	
