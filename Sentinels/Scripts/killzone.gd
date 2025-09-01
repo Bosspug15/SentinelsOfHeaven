@@ -17,7 +17,4 @@ func _on_body_entered(_body):
 
 func _on_timer_timeout():
 	player.position = checkpoint_manager.last_location
-	self.monitoring = true
-	self.monitorable = true
-	#get_tree().reload_current_scene()
 	

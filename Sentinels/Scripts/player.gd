@@ -101,11 +101,13 @@ func die() -> void:
 	animated_sprite.play("Death")
 	death_sound.play()
 	fade_timer.start()
+	player_collision.set_deferred("disabled", true)
 
 func playerReset() -> void:
 	gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 	camera.process_mode = Node.PROCESS_MODE_INHERIT
 	is_Dead = false
+	player_collision.set_deferred("disabled", false)
 
 #Make it something that the player controls where they place, make it so they can
 #only place one when they are grounded
