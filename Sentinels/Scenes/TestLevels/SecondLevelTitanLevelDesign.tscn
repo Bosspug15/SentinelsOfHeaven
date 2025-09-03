@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=4 uid="uid://cv8aa5s4ikbvd"]
+[gd_scene load_steps=110 format=4 uid="uid://cv8aa5s4ikbvd"]
 
 [ext_resource type="Script" path="res://Scripts/first_level_titan_level_designManager.gd" id="1_e1n8y"]
 [ext_resource type="PackedScene" uid="uid://cvv6wgu78lm73" path="res://Scenes/player.tscn" id="2_qkib8"]
@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://c2tnvbrpgw84n" path="res://Scenes/dialogue_area.tscn" id="43_exomo"]
 [ext_resource type="AudioStream" uid="uid://cxfyyvif4qwly" path="res://Assets/Audio/AmbientWind.wav" id="44_hcf0f"]
 [ext_resource type="PackedScene" uid="uid://dpm2arftfb40v" path="res://Scenes/fog_particles.tscn" id="44_vvaew"]
+[ext_resource type="PackedScene" uid="uid://kw5mmunrutpv" path="res://Scenes/mentor_bird.tscn" id="45_0k3tk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hac3n"]
 texture = ExtResource("4_h6j2c")
@@ -733,6 +734,67 @@ shader_parameter/noise_scroll_direction = Vector2(1, 0)
 size = Vector2(1280, 720)
 center_offset = Vector3(640, 360, 0)
 
+[sub_resource type="Animation" id="Animation_gv0ql"]
+resource_name = "FlyAway"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-776, -60), Vector2(409, -466)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hr3q1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-776, -60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ihlla"]
+_data = {
+"FlyAway": SubResource("Animation_gv0ql"),
+"RESET": SubResource("Animation_hr3q1")
+}
+
 [node name="SecondLevel" type="Node2D" node_paths=PackedStringArray("pause_target", "pause_menu", "player")]
 script = ExtResource("1_e1n8y")
 pause_target = NodePath("Pausable")
@@ -743,7 +805,7 @@ player = NodePath("Pausable/Player")
 process_mode = 1
 
 [node name="Player" parent="Pausable" node_paths=PackedStringArray("camera") instance=ExtResource("2_qkib8")]
-position = Vector2(-450, -176)
+position = Vector2(667, -638)
 camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Pausable/Player"]
@@ -759,9 +821,6 @@ position_smoothing_enabled = true
 [node name="Spike8" parent="Pausable/all spikes" instance=ExtResource("3_0eorc")]
 position = Vector2(112, -273)
 rotation = 3.14159
-
-[node name="Spike21" parent="Pausable/all spikes" instance=ExtResource("3_0eorc")]
-position = Vector2(-240, 16)
 
 [node name="Spike5" parent="Pausable/all spikes" instance=ExtResource("3_0eorc")]
 position = Vector2(-48, -144)
@@ -1563,11 +1622,12 @@ layer = 2
 material = SubResource("ShaderMaterial_it5qa")
 mesh = SubResource("QuadMesh_lg7j0")
 
-[node name="DialoguePlayer2" parent="." instance=ExtResource("42_4ot3l")]
+[node name="DialoguePlayer2" parent="." node_paths=PackedStringArray("mentor_bird") instance=ExtResource("42_4ot3l")]
 scene_text_file = "res://Assets/json/first_level.json"
+mentor_bird = NodePath("../MentorBirdAnims/MentorBird")
 
 [node name="DialogueArea" parent="." instance=ExtResource("43_exomo")]
-position = Vector2(-352, 18)
+position = Vector2(-877, 30)
 scale = Vector2(3, 3)
 dialog_key = "intro"
 
@@ -1617,3 +1677,21 @@ visibility_rect = Rect2(-500, -500, 1000, 1200)
 z_index = 5
 position = Vector2(784, -975)
 visibility_rect = Rect2(-500, -500, 1000, 1200)
+
+[node name="MentorBirdAnims" type="AnimationPlayer" parent="."]
+root_node = NodePath("MentorBird")
+libraries = {
+"": SubResource("AnimationLibrary_ihlla")
+}
+
+[node name="MentorBird" parent="MentorBirdAnims" node_paths=PackedStringArray("animation_player") instance=ExtResource("45_0k3tk")]
+process_mode = 3
+z_index = 50
+position = Vector2(-776, -60)
+scale = Vector2(1.75, 1.75)
+frame = 10
+frame_progress = 0.270017
+flip_h = true
+animation_player = NodePath("..")
+
+[node name="CurrentlyTempAnim CHANGE" type="Node" parent="MentorBirdAnims"]

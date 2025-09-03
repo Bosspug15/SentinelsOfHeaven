@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://kw5mmunrutpv"]
+[gd_scene load_steps=34 format=3 uid="uid://kw5mmunrutpv"]
 
 [ext_resource type="Texture2D" uid="uid://c2t1hbje0sdvn" path="res://Assets/Animations/MentorBirdFly-Sheet.png" id="1_dshb7"]
 [ext_resource type="Texture2D" uid="uid://di8iv2eduhyjr" path="res://Assets/Animations/MentorBirdCaw.png" id="1_kbem8"]
 [ext_resource type="Texture2D" uid="uid://ccm62pc01oavi" path="res://Assets/Animations/MentorBirdIdlePeck.png" id="3_77rfh"]
 [ext_resource type="Texture2D" uid="uid://cgpc2yg5gkgdb" path="res://Assets/Animations/MentorBirdJumpSquat.png" id="4_02xn7"]
+[ext_resource type="Script" path="res://Scripts/mentor_bird.gd" id="5_xci1y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wmgow"]
 atlas = ExtResource("1_kbem8")
@@ -170,7 +171,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 9.0,
 "texture": SubResource("AtlasTexture_nippl")
 }, {
 "duration": 1.0,
@@ -200,7 +201,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d1852")
 }, {
-"duration": 1.0,
+"duration": 9.0,
 "texture": SubResource("AtlasTexture_vik03")
 }],
 "loop": true,
@@ -230,4 +231,11 @@ animations = [{
 [node name="MentorBird" type="AnimatedSprite2D"]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_t1r0g")
-animation = &"Fly"
+animation = &"Idle_Peck"
+autoplay = "Idle_Peck"
+script = ExtResource("5_xci1y")
+
+[node name="TempTimer" type="Timer" parent="."]
+
+[connection signal="animation_changed" from="." to="." method="_on_animation_changed"]
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
