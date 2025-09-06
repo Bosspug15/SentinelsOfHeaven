@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @export_file("*json") var scene_text_file
 @export var mentor_bird : Node
+@export var caw_SFX : AudioStreamPlayer2D
 
 var scene_text: Dictionary = {}
 var selected_text: Array = []
@@ -25,6 +26,7 @@ func load_scene_text():
 
 func show_text():
 	mentor_bird.play("Caw")
+	caw_SFX.play()
 	background.visible = true
 	text_label.text = selected_text.pop_front()
 	animation_player.play("textFadeIn")
@@ -37,9 +39,6 @@ func next_line():
 
 func finish():
 	animation_player.play("TotalFadeOut")
-	#mentor_bird.play("Jump_Squat")
-	#text_label.text = ""
-	#background.visible = false
 	self.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

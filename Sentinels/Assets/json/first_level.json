@@ -11,5 +11,14 @@
 		"Ok you aren't supposed to be here",
 		"Get out",
 		"shoo"
+	],
+	"TutorialScene": [
+		"Hail traveler.",
+		"Have you come to Pontake Hollow for the ascension? 
+		Understandable as it is the only thing left of this land.",
+		"To do so, you must seek out three Great Entities. None but three of them remain.",
+		"The Aimless Titan, Mistern the Giant, and The Wall. Seek them out and find their gifts.",
+		"Only then can you ascend.",
+		"May you find peace."
 	]
 }

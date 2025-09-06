@@ -1,0 +1,779 @@
+[gd_scene load_steps=50 format=4 uid="uid://cbfx7b506m6ay"]
+
+[ext_resource type="Script" path="res://Scripts/first_level_titan_level_designManager.gd" id="1_nuv2v"]
+[ext_resource type="PackedScene" uid="uid://cvv6wgu78lm73" path="res://Scenes/player.tscn" id="2_5cd8c"]
+[ext_resource type="Texture2D" uid="uid://d0tt720i3bq1b" path="res://Assets/Art/ReactiveGrass-export.png" id="4_al6eb"]
+[ext_resource type="Texture2D" uid="uid://lt7f6h1xg5ew" path="res://Assets/Blocks/Brick.png" id="5_iesvu"]
+[ext_resource type="Texture2D" uid="uid://dk80h6vb66bh8" path="res://Assets/Blocks/Dirt.png" id="6_p5j6r"]
+[ext_resource type="Texture2D" uid="uid://bq5hwfas0qf7l" path="res://Assets/Blocks/SmoothBrickFadedTest (1).png" id="7_kn5g4"]
+[ext_resource type="Texture2D" uid="uid://bn73t3lbppgfn" path="res://Assets/Blocks/SmoothBrickFadedTest.png" id="8_tb2cs"]
+[ext_resource type="Texture2D" uid="uid://d14cypjfvgotd" path="res://Assets/Blocks/SmoothBrickCornerFaded (1).png" id="9_57tn5"]
+[ext_resource type="Texture2D" uid="uid://c7q8o54okg0r7" path="res://Assets/Blocks/SmoothBrickCornerFaded (2).png" id="10_5nr14"]
+[ext_resource type="Texture2D" uid="uid://c81cfkh5j2n8a" path="res://Assets/Blocks/SmoothBrickCornerFaded.png" id="11_vcpjd"]
+[ext_resource type="Texture2D" uid="uid://duur2vax646j6" path="res://Assets/Blocks/SmoothBrickCornerFaded (3).png" id="12_o2w0s"]
+[ext_resource type="Texture2D" uid="uid://cv0mlj6cfbvv" path="res://Assets/Blocks/SmoothBrickFadedTestEdge.png" id="13_hwa0p"]
+[ext_resource type="Texture2D" uid="uid://s1b4huxlx5dj" path="res://Assets/Blocks/SmoothBrickFadedTestEdge (1).png" id="14_mlpk4"]
+[ext_resource type="Texture2D" uid="uid://bngey5o6eifyu" path="res://Assets/Blocks/SmoothBrickFadedTestEdgeBOT.png" id="15_mfypg"]
+[ext_resource type="Texture2D" uid="uid://yewayveaxtt6" path="res://Assets/Blocks/SmoothBrickFadedTestEdgeTOP.png" id="16_ddcfv"]
+[ext_resource type="Texture2D" uid="uid://dlg38qo87ym43" path="res://Assets/Art/BlissBlue.png" id="17_bkicp"]
+[ext_resource type="PackedScene" uid="uid://dcdfj6g3l16bh" path="res://Scenes/tutorial_text.tscn" id="18_7yj1j"]
+[ext_resource type="AudioStream" uid="uid://04kyuc3bsg82" path="res://Assets/Audio/SoundEffects/CawSFX.wav" id="24_jn4o1"]
+[ext_resource type="PackedScene" uid="uid://dxnbjlnd2sw6u" path="res://Scenes/tutorial_text_box.tscn" id="27_lkxi1"]
+[ext_resource type="PackedScene" uid="uid://gf46n6dkf8aa" path="res://Scenes/pause_menu.tscn" id="32_lyiw8"]
+[ext_resource type="Shader" path="res://Assets/Shaders/screen_effect.gdshader" id="33_pja7i"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Fog.gdshader" id="34_rmqu7"]
+[ext_resource type="Script" path="res://Scripts/checkpoint_manager.gd" id="35_yue4f"]
+[ext_resource type="PackedScene" uid="uid://cx27gslgdn5d4" path="res://Scenes/reactive_grass.tscn" id="36_gipjw"]
+[ext_resource type="PackedScene" uid="uid://balchj4mjh731" path="res://Scenes/dialogue_player.tscn" id="41_3lp5g"]
+[ext_resource type="PackedScene" uid="uid://c2tnvbrpgw84n" path="res://Scenes/dialogue_area.tscn" id="42_6mu6h"]
+[ext_resource type="AudioStream" uid="uid://cxfyyvif4qwly" path="res://Assets/Audio/AmbientWind.wav" id="43_pc3ba"]
+[ext_resource type="PackedScene" uid="uid://kw5mmunrutpv" path="res://Scenes/mentor_bird.tscn" id="45_bdj3o"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hac3n"]
+texture = ExtResource("4_al6eb")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28hre"]
+resource_name = "realBrick"
+texture = ExtResource("5_iesvu")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e5784"]
+texture = ExtResource("6_p5j6r")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7eu68"]
+resource_name = "LightBrickHorizConnect"
+texture = ExtResource("7_kn5g4")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_47aig"]
+resource_name = "LightBrickVertConnect"
+texture = ExtResource("8_tb2cs")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dtnwg"]
+resource_name = "LightBrickBotLeftCorner"
+texture = ExtResource("9_57tn5")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8tfcy"]
+resource_name = "LightBrickBotRightCorner"
+texture = ExtResource("10_5nr14")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqmbq"]
+resource_name = "LightBrickTopLeftCorner"
+texture = ExtResource("11_vcpjd")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ijt7"]
+resource_name = "LightBrickTopRightCorner"
+texture = ExtResource("12_o2w0s")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nlvcr"]
+resource_name = "LBLeftEnd"
+texture = ExtResource("13_hwa0p")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqvwy"]
+resource_name = "LBRightEnd"
+texture = ExtResource("14_mlpk4")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjxfs"]
+resource_name = "LBBotEnd"
+texture = ExtResource("15_mfypg")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwgir"]
+resource_name = "LBTopEnd"
+texture = ExtResource("16_ddcfv")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_aj5dj"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/29 = SubResource("TileSetAtlasSource_28hre")
+sources/30 = SubResource("TileSetAtlasSource_e5784")
+sources/31 = SubResource("TileSetAtlasSource_7eu68")
+sources/32 = SubResource("TileSetAtlasSource_47aig")
+sources/33 = SubResource("TileSetAtlasSource_dtnwg")
+sources/34 = SubResource("TileSetAtlasSource_8tfcy")
+sources/35 = SubResource("TileSetAtlasSource_sqmbq")
+sources/36 = SubResource("TileSetAtlasSource_0ijt7")
+sources/37 = SubResource("TileSetAtlasSource_nlvcr")
+sources/38 = SubResource("TileSetAtlasSource_fqvwy")
+sources/39 = SubResource("TileSetAtlasSource_mjxfs")
+sources/40 = SubResource("TileSetAtlasSource_wwgir")
+sources/0 = SubResource("TileSetAtlasSource_hac3n")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6qb22"]
+shader = ExtResource("33_pja7i")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_goukp"]
+shader = ExtResource("34_rmqu7")
+shader_parameter/color = Color(0.0235294, 0.0980392, 0.129412, 1)
+shader_parameter/OCTAVES = 4
+shader_parameter/enable_pixelation = true
+shader_parameter/pixelation_amount = 150
+shader_parameter/fog_direction = Vector2(1, 1)
+shader_parameter/scroll_noise_tex = false
+shader_parameter/noise_scroll_direction = Vector2(1, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_bdmb7"]
+material = SubResource("ShaderMaterial_goukp")
+size = Vector2(1280, 720)
+center_offset = Vector3(640, 360, 0)
+
+[sub_resource type="Environment" id="Environment_yuiry"]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 0.05
+glow_normalized = true
+glow_intensity = 1.75
+glow_strength = 0.6
+glow_bloom = 0.67
+glow_blend_mode = 0
+glow_hdr_threshold = 0.9
+volumetric_fog_density = 0.0
+
+[sub_resource type="Animation" id="Animation_gv0ql"]
+resource_name = "FlyAway"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(120, -128), Vector2(850, -466)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hr3q1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(120, -128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ihlla"]
+_data = {
+"FlyAway": SubResource("Animation_gv0ql"),
+"RESET": SubResource("Animation_hr3q1")
+}
+
+[node name="TutorialLevel" type="Node2D" node_paths=PackedStringArray("pause_target", "pause_menu", "player")]
+script = ExtResource("1_nuv2v")
+pause_target = NodePath("Pausable")
+pause_menu = NodePath("Pausable/CRTEffect/pause_menu")
+player = NodePath("Pausable/Player")
+
+[node name="Pausable" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="Player" parent="Pausable" node_paths=PackedStringArray("camera") instance=ExtResource("2_5cd8c")]
+position = Vector2(-1190, 65)
+camera = NodePath("Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="Pausable/Player"]
+position = Vector2(3, -38)
+zoom = Vector2(1.15, 1.15)
+limit_left = -2000
+limit_right = 2000
+limit_bottom = 88
+position_smoothing_enabled = true
+
+[node name="Background" type="TileMapLayer" parent="Pausable"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+use_parent_material = true
+rotation = 0.000225823
+tile_map_data = PackedByteArray("AADR/wAAJwAAAAAAAADR////IAAAAAAAAADR//7/IAAAAAAAAADR//3/IAAAAAAAAADR//z/IAAAAAAAAADT/wEAKAAAAAAAAADq//7/IQAAAAAAAADq//3/KAAAAAAAAADd////KAAAAAAAAADd/wAAIAAAAAAAAADd/wEAIAAAAAAAAADg//7/JQAAAAAAAADi////JgAAAAAAAADR//f/KAAAAAAAAADT//j/KAAAAAAAAADR//j/IAAAAAAAAADL//v/IwAAAAAAAADL//z/IAAAAAAAAADL//3/IAAAAAAAAADL//7/IAAAAAAAAADM//v/HwAAAAAAAADN//v/HwAAAAAAAADO//v/HwAAAAAAAADz////IwAAAAAAAAD0/wAAJAAAAAAAAADz/wAAJQAAAAAAAAD0////JgAAAAAAAAD0/wEAIAAAAAAAAADq/wEAKAAAAAAAAADs/wEAIAAAAAAAAADs/wAAKAAAAAAAAAACAP//KAAAAAAAAAACAAAAIAAAAAAAAAACAAEAIAAAAAAAAAAFAAEAIAAAAAAAAAAFAAAAKAAAAAAAAAD8/wEAKAAAAAAAAAAQAAAAKAAAAAAAAAAPAP3/KAAAAAAAAAAPAP7/IAAAAAAAAAAJAAAAKAAAAAAAAAALAP//KAAAAAAAAAA=")
+tile_set = SubResource("TileSet_aj5dj")
+
+[node name="Mid" type="TileMapLayer" parent="Pausable"]
+use_parent_material = true
+rotation = 0.000225823
+tile_map_data = PackedByteArray("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")
+tile_set = SubResource("TileSet_aj5dj")
+
+[node name="Front" type="TileMapLayer" parent="Pausable"]
+z_index = 5
+use_parent_material = true
+rotation = 0.000225823
+tile_map_data = PackedByteArray("AADO/wEAAAAAAAAAAADN/wEAAAAAAAAAAADM/wEAAAAAAAAAAADL/wEAAAAAAAAAAADK/wEAAAAAAAAAAADJ/wEAAAAAAAAAAADI/wEAAAAAAAAAAADH/wEAAAAAAAAAAADG/wEAAAAAAAAAAADF/wEAAAAAAAAAAADE/wEAAAAAAAAAAADD/wEAAAAAAAAAAADP/wEAAAAAAAAAAADQ/wEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_aj5dj")
+
+[node name="FrontFaded" type="TileMapLayer" parent="Pausable"]
+modulate = Color(1, 1, 1, 0.784314)
+z_index = 4
+use_parent_material = true
+rotation = 0.000225823
+tile_map_data = PackedByteArray("AAAEAP7/IAAAAAAAAAAEAP//IAAAAAAAAAAEAAAAIAAAAAAAAAAEAAEAIAAAAAAAAAAEAP3/JAAAAAAAAAADAP3/JQAAAAAAAADT//3/JwAAAAAAAADT//z/IAAAAAAAAADT//v/IAAAAAAAAADT//r/IAAAAAAAAADV/wAAKAAAAAAAAADV/wEAIAAAAAAAAADt//3/JgAAAAAAAADs//3/IwAAAAAAAADs//7/IgAAAAAAAADr//7/IwAAAAAAAADr////IAAAAAAAAADr/wAAIAAAAAAAAADr/wEAIAAAAAAAAADe/wEAKAAAAAAAAADh//3/KAAAAAAAAADh//7/IAAAAAAAAADh////IAAAAAAAAADh/wAAIAAAAAAAAADh/wEAIAAAAAAAAADS//X/KAAAAAAAAADS//b/IAAAAAAAAADS//f/IAAAAAAAAADS//j/IAAAAAAAAAD0//7/JQAAAAAAAAD1////IAAAAAAAAAD1/wAAIAAAAAAAAAD1/wEAIAAAAAAAAAD1//7/JAAAAAAAAAABAAEAKAAAAAAAAAD3/wEAIAAAAAAAAAD3/wAAKAAAAAAAAAA=")
+tile_set = SubResource("TileSet_aj5dj")
+
+[node name="Invisibile" type="TileMapLayer" parent="Pausable"]
+modulate = Color(1, 1, 1, 0.865)
+use_parent_material = true
+rotation = 0.000225823
+tile_set = SubResource("TileSet_aj5dj")
+
+[node name="ParallaxBackgroundTest" type="ParallaxBackground" parent="Pausable"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Pausable/ParallaxBackgroundTest"]
+motion_scale = Vector2(0, 0.4)
+
+[node name="BlissBackground" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxLayer"]
+z_index = -5
+position = Vector2(-29, -528)
+texture = ExtResource("17_bkicp")
+
+[node name="FadeAnimation" type="Node" parent="Pausable"]
+
+[node name="TutorialText" parent="Pausable" instance=ExtResource("18_7yj1j")]
+process_mode = 3
+
+[node name="CRTEffect" type="CanvasLayer" parent="Pausable"]
+layer = 2
+
+[node name="pause_menu" parent="Pausable/CRTEffect" node_paths=PackedStringArray("scene_pause") instance=ExtResource("32_lyiw8")]
+visible = false
+scene_pause = NodePath("../../..")
+
+[node name="CRTEffectMesh" type="MeshInstance2D" parent="Pausable/CRTEffect"]
+material = SubResource("ShaderMaterial_6qb22")
+position = Vector2(-1, 0)
+mesh = SubResource("QuadMesh_bdmb7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Pausable"]
+environment = SubResource("Environment_yuiry")
+
+[node name="CheckpointManager" type="Node" parent="Pausable"]
+script = ExtResource("35_yue4f")
+
+[node name="All Grass" type="Node" parent="Pausable"]
+
+[node name="ReactiveGrass7" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-272, 64.2)
+
+[node name="ReactiveGrass8" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-304, 64.2)
+
+[node name="ReactiveGrass9" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-336, 64.2)
+
+[node name="ReactiveGrass10" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-368, 64.2)
+
+[node name="ReactiveGrass11" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-400, 64.2)
+
+[node name="ReactiveGrass12" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-432, 64.2)
+
+[node name="ReactiveGrass" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-464, 64.2)
+
+[node name="ReactiveGrass2" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-496, 64.2)
+
+[node name="ReactiveGrass3" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-528, 64.2)
+
+[node name="ReactiveGrass4" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-560, 64.2)
+
+[node name="ReactiveGrass5" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-592, 64.2)
+
+[node name="ReactiveGrass6" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-624, 64.2)
+
+[node name="ReactiveGrass13" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-656, 64.2)
+
+[node name="ReactiveGrass14" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-688, 64.2)
+
+[node name="ReactiveGrass15" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-720, 64.2)
+
+[node name="ReactiveGrass16" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-752, 64.2)
+
+[node name="ReactiveGrass76" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1136, 64.2)
+
+[node name="ReactiveGrass77" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1168, 64.2)
+
+[node name="ReactiveGrass78" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1200, 64.2)
+
+[node name="ReactiveGrass79" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1232, 64.2)
+
+[node name="ReactiveGrass80" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1264, 64.2)
+
+[node name="ReactiveGrass81" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1296, 64.2)
+
+[node name="ReactiveGrass82" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1328, 64.2)
+
+[node name="ReactiveGrass83" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1424, 64.2)
+
+[node name="ReactiveGrass84" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1456, 64.2)
+
+[node name="ReactiveGrass85" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1488, 64.2)
+
+[node name="ReactiveGrass86" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1360, 64.2)
+
+[node name="ReactiveGrass87" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1392, 64.2)
+
+[node name="ReactiveGrass17" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-784, 64.2)
+
+[node name="ReactiveGrass18" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-816, 64.2)
+
+[node name="ReactiveGrass19" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-848, 64.2)
+
+[node name="ReactiveGrass20" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-880, 64.2)
+
+[node name="ReactiveGrass21" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-912, 64.2)
+
+[node name="ReactiveGrass22" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-944, 64.2)
+
+[node name="ReactiveGrass73" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1040, 64.2)
+
+[node name="ReactiveGrass74" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1072, 64.2)
+
+[node name="ReactiveGrass75" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1104, 64.2)
+
+[node name="ReactiveGrass23" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-976, 64.2)
+
+[node name="ReactiveGrass24" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-1008, 64.2)
+
+[node name="ReactiveGrass25" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(496, 64.2)
+
+[node name="ReactiveGrass26" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(464, 64.2)
+
+[node name="ReactiveGrass27" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(432, 64.2)
+
+[node name="ReactiveGrass28" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(400, 64.2)
+
+[node name="ReactiveGrass29" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(368, 64.2)
+
+[node name="ReactiveGrass30" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(336, 64.2)
+
+[node name="ReactiveGrass31" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(304, 64.2)
+
+[node name="ReactiveGrass32" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(272, 64.2)
+
+[node name="ReactiveGrass33" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(240, 64.2)
+
+[node name="ReactiveGrass34" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(208, 64.2)
+
+[node name="ReactiveGrass35" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(176, 64.2)
+
+[node name="ReactiveGrass36" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(144, 64.2)
+
+[node name="ReactiveGrass37" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(112, 64.2)
+
+[node name="ReactiveGrass38" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(80, 64.2)
+
+[node name="ReactiveGrass39" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(48, 64.2)
+
+[node name="ReactiveGrass40" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(16, 64.2)
+
+[node name="ReactiveGrass41" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-16, 64.2)
+
+[node name="ReactiveGrass42" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-48, 64.2)
+
+[node name="ReactiveGrass43" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-80, 64.2)
+
+[node name="ReactiveGrass44" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-112, 64.2)
+
+[node name="ReactiveGrass45" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-144, 64.2)
+
+[node name="ReactiveGrass46" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-176, 64.2)
+
+[node name="ReactiveGrass47" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-208, 64.2)
+
+[node name="ReactiveGrass48" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(-240, 64.2)
+
+[node name="ReactiveGrass49" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1264, 64.2)
+
+[node name="ReactiveGrass50" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1232, 64.2)
+
+[node name="ReactiveGrass51" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1200, 64.2)
+
+[node name="ReactiveGrass52" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1168, 64.2)
+
+[node name="ReactiveGrass53" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1136, 64.2)
+
+[node name="ReactiveGrass54" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1104, 64.2)
+
+[node name="ReactiveGrass55" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1072, 64.2)
+
+[node name="ReactiveGrass56" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1040, 64.2)
+
+[node name="ReactiveGrass57" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1008, 64.2)
+
+[node name="ReactiveGrass58" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(976, 64.2)
+
+[node name="ReactiveGrass59" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(944, 64.2)
+
+[node name="ReactiveGrass60" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(912, 64.2)
+
+[node name="ReactiveGrass61" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(880, 64.2)
+
+[node name="ReactiveGrass62" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(848, 64.2)
+
+[node name="ReactiveGrass63" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(816, 64.2)
+
+[node name="ReactiveGrass64" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(784, 64.2)
+
+[node name="ReactiveGrass89" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1776, 64.2)
+
+[node name="ReactiveGrass90" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1744, 64.2)
+
+[node name="ReactiveGrass91" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1712, 64.2)
+
+[node name="ReactiveGrass92" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1680, 64.2)
+
+[node name="ReactiveGrass93" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1648, 64.2)
+
+[node name="ReactiveGrass94" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1616, 64.2)
+
+[node name="ReactiveGrass95" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1584, 64.2)
+
+[node name="ReactiveGrass96" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1552, 64.2)
+
+[node name="ReactiveGrass97" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1520, 64.2)
+
+[node name="ReactiveGrass98" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1488, 64.2)
+
+[node name="ReactiveGrass99" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1456, 64.2)
+
+[node name="ReactiveGrass100" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1424, 64.2)
+
+[node name="ReactiveGrass101" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1392, 64.2)
+
+[node name="ReactiveGrass102" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1360, 64.2)
+
+[node name="ReactiveGrass103" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1328, 64.2)
+
+[node name="ReactiveGrass104" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(1296, 64.2)
+
+[node name="ReactiveGrass65" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(752, 64.2)
+
+[node name="ReactiveGrass66" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(720, 64.2)
+
+[node name="ReactiveGrass67" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(688, 64.2)
+
+[node name="ReactiveGrass68" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(656, 64.2)
+
+[node name="ReactiveGrass69" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(624, 64.2)
+
+[node name="ReactiveGrass70" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(592, 64.2)
+
+[node name="ReactiveGrass71" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(560, 64.2)
+
+[node name="ReactiveGrass72" parent="Pausable/All Grass" instance=ExtResource("36_gipjw")]
+z_index = 5
+position = Vector2(528, 64.2)
+
+[node name="MentorBirdAnims" type="AnimationPlayer" parent="."]
+root_node = NodePath("MentorBird")
+libraries = {
+"": SubResource("AnimationLibrary_ihlla")
+}
+
+[node name="MentorBird" parent="MentorBirdAnims" node_paths=PackedStringArray("animation_player") instance=ExtResource("45_bdj3o")]
+process_mode = 3
+top_level = true
+position = Vector2(120, -128)
+scale = Vector2(2, 2)
+frame_progress = 0.668331
+flip_h = true
+animation_player = NodePath("..")
+
+[node name="CawSFX" type="AudioStreamPlayer2D" parent="MentorBirdAnims/MentorBird"]
+stream = ExtResource("24_jn4o1")
+
+[node name="CurrentlyTempAnim CHANGE" type="Node" parent="MentorBirdAnims"]
+
+[node name="DialoguePlayer2" parent="." node_paths=PackedStringArray("mentor_bird", "caw_SFX") instance=ExtResource("41_3lp5g")]
+scene_text_file = "res://Assets/json/first_level.json"
+mentor_bird = NodePath("../MentorBirdAnims/MentorBird")
+caw_SFX = NodePath("../MentorBirdAnims/MentorBird/CawSFX")
+
+[node name="DialogueArea" parent="." instance=ExtResource("42_6mu6h")]
+position = Vector2(-185, 25)
+scale = Vector2(3, 3)
+dialog_key = "TutorialScene"
+
+[node name="PlaceHolderAmbience" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+position = Vector2(-304, -280)
+stream = ExtResource("43_pc3ba")
+autoplay = true
+max_distance = 10000.0
+panning_strength = 0.0
+
+[node name="DialogueTutorial" parent="." node_paths=PackedStringArray("tutorial_text") instance=ExtResource("27_lkxi1")]
+process_mode = 3
+position = Vector2(-184, -41)
+scale = Vector2(3.15935, 8.83913)
+tutorial_text = NodePath("../Pausable/TutorialText")
+new_text = "[Down Arrow] to continue"
+action_to_complete = "continue_dialogue"
+
+[node name="MovementTutorial" parent="." node_paths=PackedStringArray("tutorial_text") instance=ExtResource("27_lkxi1")]
+position = Vector2(-1189, -31)
+scale = Vector2(10.4794, 7.95913)
+tutorial_text = NodePath("../Pausable/TutorialText")
+new_text = "[Arrow Keys] to move"
+action_to_complete = "move_right"
+
+[node name="JumpTutorial" parent="." node_paths=PackedStringArray("tutorial_text") instance=ExtResource("27_lkxi1")]
+position = Vector2(-849, -69)
+scale = Vector2(6.75988, 9.72836)
+tutorial_text = NodePath("../Pausable/TutorialText")
+new_text = "[Space] to jump"
+action_to_complete = "jump"
