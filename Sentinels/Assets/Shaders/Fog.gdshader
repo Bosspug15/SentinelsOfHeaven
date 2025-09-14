@@ -1,8 +1,5 @@
 shader_type canvas_item;
 
-// Credit for the original shader goes to Gonkee: https://github.com/Gonkee/Gonkees-Shaders/blob/master/fog.shader
-// Pixelate by Godot Shaders: https://godotshaders.com/shader/pixelate/
-
 uniform vec4 color : source_color;
 uniform int OCTAVES = 4;
 uniform bool enable_pixelation = true;

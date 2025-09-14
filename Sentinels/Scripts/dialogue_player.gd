@@ -2,7 +2,6 @@ extends CanvasLayer
 
 @export_file("*json") var scene_text_file
 @export var mentor_bird : Node
-@export var caw_SFX : AudioStreamPlayer2D
 
 var scene_text: Dictionary = {}
 var selected_text: Array = []
@@ -11,6 +10,9 @@ var in_progress: bool = false
 @onready var background = $AnimationPlayer/background
 @onready var text_label = $AnimationPlayer/textlabel
 @onready var animation_player = $AnimationPlayer
+@onready var caw_sfx = $Caw
+var readyToPlayCaw = true
+var titleFinished = false
 
 func _ready() -> void:
 	background.visible = false
@@ -25,11 +27,12 @@ func load_scene_text():
 		return test_json_conv.get_data()
 
 func show_text():
-	mentor_bird.play("Caw")
-	caw_SFX.play()
-	background.visible = true
-	text_label.text = selected_text.pop_front()
-	animation_player.play("textFadeIn")
+	if titleFinished:
+		mentor_bird.play("Caw")
+		background.visible = true
+		text_label.text = selected_text.pop_front()
+		animation_player.play("textFadeIn")
+		caw_sfx.play()
 
 func next_line():
 	if selected_text.size() > 0:
@@ -58,3 +61,6 @@ func on_display_dialog(text_key):
 		in_progress = true
 		selected_text = scene_text[text_key].duplicate()
 		show_text()
+
+func _on_caw_finished() -> void:
+	readyToPlayCaw = true

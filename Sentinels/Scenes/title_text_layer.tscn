@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://y0nae6ureop"]
+
+[ext_resource type="FontFile" uid="uid://blmwvrfolcudf" path="res://Assets/Fonts/Minecraftia-Regular.ttf" id="1_lhmg5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cv4on"]
+font = ExtResource("1_lhmg5")
+font_size = 32
+
+[node name="TitleTextLayer" type="CanvasLayer"]
+
+[node name="TitleText" type="Label" parent="."]
+offset_left = 24.0
+offset_right = 348.0
+offset_bottom = 56.0
+text = "The Aimless Giant"
+label_settings = SubResource("LabelSettings_cv4on")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Underline" type="ColorRect" parent="TitleText"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 35.0
+offset_right = 34.0
+offset_bottom = 75.0
+scale = Vector2(8.40179, 0.0987786)
+
+[node name="UnderlineFade" type="ColorRect" parent="TitleText"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 35.0
+offset_right = 17.0
+offset_bottom = 75.0
+scale = Vector2(9.24179, 0.0987786)
+color = Color(1, 1, 1, 0.5)
+
+[node name="UnderlineFade2" type="ColorRect" parent="TitleText"]
+z_index = 1
+layout_mode = 0
+offset_left = -15.0
+offset_top = 35.0
+offset_right = 25.0
+offset_bottom = 75.0
+scale = Vector2(8.84179, 0.0987786)
+color = Color(1, 1, 1, 0.75)

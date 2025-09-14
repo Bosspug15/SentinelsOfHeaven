@@ -6,6 +6,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var cut_jump_height: float = 0.5
 var wind_Push = 1
 var in_cutscene = false
+var is_Dead = true
 
 @export var camera : Node
 
@@ -20,7 +21,7 @@ var in_cutscene = false
 @onready var fade_timer = $FadeTimer
 @onready var fade_in_timer = $FadeInTimer
 @onready var checkpoint_timer = $CheckpointTimer
-@onready var is_Dead = false
+@onready var lock_timer = $LockTimer
 @onready var dust = preload("res://Scenes/dust.tscn")
 @onready var checkpoint = preload("res://Scenes/checkpoint_area.tscn")
 var isGrounded = true
@@ -42,6 +43,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta * 0.89 * wind_Push
 
+#OLD PLEASE DELETE
 	if Input.is_action_just_pressed("checkpoint"):
 		var checkpointInstance = checkpoint.instantiate()
 		get_parent().add_child(checkpointInstance)
@@ -135,4 +137,7 @@ func _on_fade_in_timer_timeout() -> void:
 
 func _on_checkpoint_timer_timeout() -> void:
 	is_Dead = false
-	
+
+func _on_lock_timer_timeout() -> void:
+	is_Dead = false
+	lock_timer.queue_free()

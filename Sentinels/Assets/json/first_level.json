@@ -1,17 +1,4 @@
 {
-	"intro": [
-		"poop
-		new space",
-		"haha"
-	],
-	"second": [
-		"yay! :3"
-	],
-	"supersecret": [
-		"Ok you aren't supposed to be here",
-		"Get out",
-		"shoo"
-	],
 	"TutorialScene": [
 		"Hail traveler.",
 		"Have you come to Pontake Hollow for the ascension? 
@@ -20,5 +7,41 @@
 		"The Aimless Titan, Mistern the Giant, and The Wall. Seek them out and find their gifts.",
 		"Only then can you ascend.",
 		"May you find peace."
+	],
+	"introLevel1": [
+		"Hail traveler.",
+		"Indiscriminate in stasis as it was in motion.", 
+		"Learn what it means to stand before a Great Entity.",
+		"Now go. Find a loose piece of the Aimless Titan.",
+		"May you find peace."
+	],
+	"introLevel2": [
+		"Hail traveler.",
+		"Heed my warning. Above you rests a great fog. Your path will be unclear. Your next step uncertain.",
+		"Stay focused. Take your time and capture the giant’s essence.",
+		"May you find peace."
+	],
+	"introLevel3": [
+		"Hail traveler.",
+		"“For those who must fall into the sky,
+		climb The Wall.
+		Shed the burdens that kept you grounded,
+		it’s too late.”",
+		"May you find peace in this land."
+	],
+	"supersecret1": [
+		"Ok you aren't supposed to be here",
+		"Get out",
+		"shoo"
+	],
+	"supersecret2": [
+		"Wah! I've been found? I'll tell you something interesting then.",
+		"Did you know there are 11 different types of fog?",
+		"The more you know!"
+	],
+	"supersecret3": [
+		"Walls are meant to be broken.",
+		"Sorry I was trying to say something deep but it was kinda generic.",
+		"Please ignore that. Come back once I've workshopped it.",
 	]
 }

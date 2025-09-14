@@ -12,5 +12,8 @@ script = ExtResource("1_7mus2")
 [node name="DialogueHitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qrnp7")
 
+[node name="ContinueTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -14,7 +14,11 @@ config/name="Sentinels Test"
 run/main_scene="res://Scenes/TestLevels/FirstLevelTest.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Assets/Art/Logo HDmaybe.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=2000
 
 [autoload]
 

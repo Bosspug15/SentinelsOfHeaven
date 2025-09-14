@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj7ekd65jbgn2"]
+
+[ext_resource type="Script" path="res://Scripts/transition_box.gd" id="1_3px6s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4l8t0"]
+
+[node name="TransitionBox" type="Area2D"]
+script = ExtResource("1_3px6s")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4l8t0")
+
+[node name="Transition Timer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Transition Timer" to="." method="_on_transition_timer_timeout"]

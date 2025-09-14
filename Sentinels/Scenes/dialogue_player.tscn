@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://balchj4mjh731"]
+[gd_scene load_steps=10 format=3 uid="uid://balchj4mjh731"]
 
 [ext_resource type="Script" path="res://Scripts/dialogue_player.gd" id="1_mgr58"]
 [ext_resource type="FontFile" uid="uid://blmwvrfolcudf" path="res://Assets/Fonts/Minecraftia-Regular.ttf" id="1_onl4q"]
+[ext_resource type="AudioStream" uid="uid://04kyuc3bsg82" path="res://Assets/Audio/SoundEffects/CawSFX.wav" id="3_47tas"]
 
 [sub_resource type="Animation" id="Animation_r0c1p"]
 length = 0.001
@@ -127,4 +128,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="Caw" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_47tas")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="Caw" to="." method="_on_caw_finished"]
