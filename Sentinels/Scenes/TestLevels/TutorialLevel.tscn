@@ -226,14 +226,14 @@ player = NodePath("Pausable/Player")
 process_mode = 1
 
 [node name="Player" parent="Pausable" node_paths=PackedStringArray("camera") instance=ExtResource("2_5cd8c")]
-position = Vector2(-1193, 63)
+position = Vector2(822, 59)
 camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Pausable/Player"]
 position = Vector2(3, -38)
 zoom = Vector2(1.15, 1.15)
 limit_left = -2000
-limit_right = 2000
+limit_right = 1350
 limit_bottom = 88
 position_smoothing_enabled = true
 
@@ -742,10 +742,11 @@ stream = ExtResource("24_jn4o1")
 [node name="DialoguePlayer2" parent="." node_paths=PackedStringArray("mentor_bird") instance=ExtResource("41_3lp5g")]
 scene_text_file = "res://Assets/json/first_level.json"
 mentor_bird = NodePath("../MentorBirdAnims/MentorBird")
+titleFinished = true
 
 [node name="DialogueArea" parent="." instance=ExtResource("42_6mu6h")]
-position = Vector2(-185, 25)
-scale = Vector2(3, 3)
+position = Vector2(-184, -74)
+scale = Vector2(3, 12.28)
 dialog_key = "TutorialScene"
 
 [node name="PlaceHolderAmbience" type="AudioStreamPlayer2D" parent="."]
@@ -779,6 +780,6 @@ new_text = "[Space] to jump"
 action_to_complete = "jump"
 
 [node name="TransitionBox" parent="." node_paths=PackedStringArray("player") instance=ExtResource("29_ykcmu")]
-position = Vector2(970, -98)
+position = Vector2(932, -98)
 scale = Vector2(-4.09558, 14.4283)
 player = NodePath("../Pausable/Player")

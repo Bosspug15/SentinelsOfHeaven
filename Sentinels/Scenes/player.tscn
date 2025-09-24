@@ -1033,8 +1033,6 @@ position = Vector2(-1, -31)
 scale = Vector2(15, 15)
 sprite_frames = SubResource("SpriteFrames_wth8n")
 animation = &"FadeInTest"
-frame = 13
-frame_progress = 0.457731
 
 [node name="FadeBorder" type="Sprite2D" parent="FadeOut"]
 z_index = 20
@@ -1046,8 +1044,8 @@ texture = ExtResource("14_63vqg")
 wait_time = 1.5
 one_shot = true
 
-[node name="CheckpointTimer" type="Timer" parent="."]
-wait_time = 1.5
+[node name="ResetWait" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="MentorBirdRespawn" type="AnimatedSprite2D" parent="."]
@@ -1073,5 +1071,5 @@ autostart = true
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]
 [connection signal="timeout" from="FadeInTimer" to="." method="_on_fade_in_timer_timeout"]
-[connection signal="timeout" from="CheckpointTimer" to="." method="_on_checkpoint_timer_timeout"]
+[connection signal="timeout" from="ResetWait" to="." method="_on_reset_wait_timeout"]
 [connection signal="timeout" from="LockTimer" to="." method="_on_lock_timer_timeout"]

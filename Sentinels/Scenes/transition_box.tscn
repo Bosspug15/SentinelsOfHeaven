@@ -12,7 +12,7 @@ shape = SubResource("RectangleShape2D_4l8t0")
 
 [node name="Transition Timer" type="Timer" parent="."]
 process_mode = 3
-wait_time = 2.0
+wait_time = 1.1
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
