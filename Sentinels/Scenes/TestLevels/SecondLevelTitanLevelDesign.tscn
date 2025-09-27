@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=4 uid="uid://cv8aa5s4ikbvd"]
+[gd_scene load_steps=120 format=4 uid="uid://cv8aa5s4ikbvd"]
 
 [ext_resource type="Script" path="res://Scripts/first_level_titan_level_designManager.gd" id="1_e1n8y"]
 [ext_resource type="PackedScene" uid="uid://cvv6wgu78lm73" path="res://Scenes/player.tscn" id="2_qkib8"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://yewayveaxtt6" path="res://Assets/Blocks/SmoothBrickFadedTestEdgeTOP.png" id="16_b2ou6"]
 [ext_resource type="Texture2D" uid="uid://dlg38qo87ym43" path="res://Assets/Art/BlissBlue.png" id="17_ixu6m"]
 [ext_resource type="Texture2D" uid="uid://dt3dwjo83t6yt" path="res://Assets/Art/Soul of The Wall.png" id="18_5g8yu"]
+[ext_resource type="Texture2D" uid="uid://bgl1dafgejr2j" path="res://Assets/Art/ParallaxDecoTest.png" id="18_qe7rv"]
 [ext_resource type="Texture2D" uid="uid://c3ls4wvbf1ybq" path="res://Assets/Art/SavePoint.png" id="19_o1iyq"]
 [ext_resource type="Texture2D" uid="uid://b4afoj8di1in6" path="res://Assets/TitanTiles/TexturedTiles/tile4.png" id="20_m46ak"]
 [ext_resource type="Texture2D" uid="uid://dcom3mrccbbph" path="res://Assets/TitanTiles/DarkerTitanColor.png" id="21_k0iq8"]
@@ -42,9 +43,13 @@
 [ext_resource type="PackedScene" uid="uid://d0kxjbpcodqe4" path="res://Scenes/secret_orb.tscn" id="41_tjq23"]
 [ext_resource type="PackedScene" uid="uid://balchj4mjh731" path="res://Scenes/dialogue_player.tscn" id="42_4ot3l"]
 [ext_resource type="PackedScene" uid="uid://c2tnvbrpgw84n" path="res://Scenes/dialogue_area.tscn" id="43_exomo"]
+[ext_resource type="AudioStream" uid="uid://cxpe2ybfsmxv6" path="res://Assets/Audio/SoundEffects/AreaIntro.mp3" id="43_nphek"]
 [ext_resource type="AudioStream" uid="uid://cxfyyvif4qwly" path="res://Assets/Audio/AmbientWind.wav" id="44_hcf0f"]
 [ext_resource type="PackedScene" uid="uid://dpm2arftfb40v" path="res://Scenes/fog_particles.tscn" id="44_vvaew"]
+[ext_resource type="Script" path="res://Scripts/title_animation.gd" id="44_xbm30"]
 [ext_resource type="PackedScene" uid="uid://kw5mmunrutpv" path="res://Scenes/mentor_bird.tscn" id="45_0k3tk"]
+[ext_resource type="FontFile" uid="uid://blmwvrfolcudf" path="res://Assets/Fonts/Minecraftia-Regular.ttf" id="45_bfco3"]
+[ext_resource type="PackedScene" uid="uid://ddr2hfjoklxpo" path="res://Scenes/fade_white.tscn" id="46_e0rt4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hac3n"]
 texture = ExtResource("4_h6j2c")
@@ -734,6 +739,64 @@ shader_parameter/noise_scroll_direction = Vector2(1, 0)
 size = Vector2(1280, 720)
 center_offset = Vector3(640, 360, 0)
 
+[sub_resource type="Animation" id="Animation_6e7tp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_52h34"]
+resource_name = "TitleFadeIn"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d1hvb"]
+resource_name = "TitleFadeOut"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0eo0y"]
+_data = {
+"RESET": SubResource("Animation_6e7tp"),
+"TitleFadeIn": SubResource("Animation_52h34"),
+"TitleFadeOut": SubResource("Animation_d1hvb")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_u4qk3"]
+font = ExtResource("45_bfco3")
+font_size = 32
+
 [sub_resource type="Animation" id="Animation_gv0ql"]
 resource_name = "FlyAway"
 length = 3.0
@@ -805,7 +868,7 @@ player = NodePath("Pausable/Player")
 process_mode = 1
 
 [node name="Player" parent="Pausable" node_paths=PackedStringArray("camera") instance=ExtResource("2_qkib8")]
-position = Vector2(-1244, 60)
+position = Vector2(-1201, 6)
 camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Pausable/Player"]
@@ -979,6 +1042,17 @@ motion_scale = Vector2(0, 0.4)
 z_index = -5
 position = Vector2(-29, -528)
 texture = ExtResource("17_ixu6m")
+
+[node name="ParallaxRubble" type="ParallaxLayer" parent="Pausable/ParallaxBackgroundTest"]
+modulate = Color(0.5, 0.5, 0.5, 1)
+z_index = -5
+position = Vector2(0, 150)
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(500, 0)
+
+[node name="ParallaxDeco" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxRubble"]
+texture = ExtResource("18_qe7rv")
+flip_h = true
 
 [node name="SoulOfTheWall" type="Sprite2D" parent="Pausable"]
 position = Vector2(306, -1674)
@@ -1625,9 +1699,65 @@ mesh = SubResource("QuadMesh_lg7j0")
 scene_text_file = "res://Assets/json/first_level.json"
 mentor_bird = NodePath("../MentorBirdAnims/MentorBird")
 
+[node name="AreaIntro" type="AudioStreamPlayer2D" parent="DialoguePlayer2"]
+stream = ExtResource("43_nphek")
+volume_db = 7.0
+autoplay = true
+
+[node name="Title Animation" type="AnimationPlayer" parent="DialoguePlayer2" node_paths=PackedStringArray("dialogue_player")]
+root_node = NodePath("TitleText")
+libraries = {
+"": SubResource("AnimationLibrary_0eo0y")
+}
+autoplay = "TitleFadeIn"
+script = ExtResource("44_xbm30")
+dialogue_player = NodePath("..")
+
+[node name="TitleText" type="Label" parent="DialoguePlayer2/Title Animation"]
+offset_left = 325.0
+offset_top = 279.0
+offset_right = 649.0
+offset_bottom = 335.0
+scale = Vector2(2, 2)
+text = "Mistern The Giant"
+label_settings = SubResource("LabelSettings_u4qk3")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Underline" type="ColorRect" parent="DialoguePlayer2/Title Animation/TitleText"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 35.0
+offset_right = 34.0
+offset_bottom = 75.0
+scale = Vector2(8.40179, 0.0987786)
+
+[node name="UnderlineFade" type="ColorRect" parent="DialoguePlayer2/Title Animation/TitleText"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 35.0
+offset_right = 17.0
+offset_bottom = 75.0
+scale = Vector2(9.24179, 0.0987786)
+color = Color(1, 1, 1, 0.5)
+
+[node name="UnderlineFade2" type="ColorRect" parent="DialoguePlayer2/Title Animation/TitleText"]
+z_index = 1
+layout_mode = 0
+offset_left = -15.0
+offset_top = 35.0
+offset_right = 25.0
+offset_bottom = 75.0
+scale = Vector2(8.84179, 0.0987786)
+color = Color(1, 1, 1, 0.75)
+
+[node name="FadeWhite" parent="DialoguePlayer2" instance=ExtResource("46_e0rt4")]
+process_mode = 1
+
 [node name="DialogueArea" parent="." instance=ExtResource("43_exomo")]
-position = Vector2(-1146, 25)
-scale = Vector2(3, 3)
+position = Vector2(-1146, -44)
+scale = Vector2(3, 9.44)
 dialog_key = "introLevel2"
 
 [node name="SecretDialogue" parent="." instance=ExtResource("43_exomo")]
@@ -1700,3 +1830,5 @@ flip_h = true
 animation_player = NodePath("..")
 
 [node name="CurrentlyTempAnim CHANGE" type="Node" parent="MentorBirdAnims"]
+
+[connection signal="animation_finished" from="DialoguePlayer2/Title Animation" to="DialoguePlayer2/Title Animation" method="_on_animation_finished"]
