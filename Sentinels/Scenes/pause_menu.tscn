@@ -19,6 +19,7 @@ z_index = 15
 script = ExtResource("1_ptcgx")
 
 [node name="PauseSFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(641, 333)
 stream = ExtResource("2_pogx6")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -78,7 +79,7 @@ action_mode = 0
 flat = true
 
 [node name="UnPauseSFX" type="AudioStreamPlayer2D" parent="Resume"]
-position = Vector2(-540, -299)
+position = Vector2(94, 44)
 stream = ExtResource("4_ro8y6")
 
 [node name="Label" type="Label" parent="Resume"]

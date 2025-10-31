@@ -18,10 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://yewayveaxtt6" path="res://Assets/Blocks/SmoothBrickFadedTestEdgeTOP.png" id="16_b2ou6"]
 [ext_resource type="Texture2D" uid="uid://dlg38qo87ym43" path="res://Assets/Art/BlissBlue.png" id="17_ixu6m"]
 [ext_resource type="Texture2D" uid="uid://dt3dwjo83t6yt" path="res://Assets/Art/Soul of The Wall.png" id="18_5g8yu"]
-[ext_resource type="Texture2D" uid="uid://bgl1dafgejr2j" path="res://Assets/Art/ParallaxDecoTest.png" id="18_qe7rv"]
+[ext_resource type="Texture2D" uid="uid://47who6k4c7g7" path="res://Assets/Art/ParallaxMistern.png" id="18_dfu41"]
 [ext_resource type="Texture2D" uid="uid://c3ls4wvbf1ybq" path="res://Assets/Art/SavePoint.png" id="19_o1iyq"]
 [ext_resource type="Texture2D" uid="uid://b4afoj8di1in6" path="res://Assets/TitanTiles/TexturedTiles/tile4.png" id="20_m46ak"]
-[ext_resource type="Texture2D" uid="uid://dcom3mrccbbph" path="res://Assets/TitanTiles/DarkerTitanColor.png" id="21_k0iq8"]
+[ext_resource type="Texture2D" uid="uid://dcom3mrccbbph" path="res://Assets/TitanTiles/TexturedTiles/DarkerTitanColor.png" id="21_k0iq8"]
 [ext_resource type="Texture2D" uid="uid://cc4da5mrsx87h" path="res://Assets/TitanTiles/TexturedTiles/tile3.png" id="22_b8e2u"]
 [ext_resource type="Texture2D" uid="uid://bvs3m1cftyog0" path="res://Assets/TitanTiles/TexturedTiles/tile2.png" id="23_knnth"]
 [ext_resource type="Texture2D" uid="uid://da1p3pxfarr85" path="res://Assets/TitanTiles/TexturedTiles/DetailedLightestTitanColor-export.png" id="24_442nf"]
@@ -868,7 +868,7 @@ player = NodePath("Pausable/Player")
 process_mode = 1
 
 [node name="Player" parent="Pausable" node_paths=PackedStringArray("camera") instance=ExtResource("2_qkib8")]
-position = Vector2(-1201, 6)
+position = Vector2(859, -81)
 camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Pausable/Player"]
@@ -1051,7 +1051,7 @@ motion_scale = Vector2(0.2, 0.2)
 motion_offset = Vector2(500, 0)
 
 [node name="ParallaxDeco" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxRubble"]
-texture = ExtResource("18_qe7rv")
+texture = ExtResource("18_dfu41")
 flip_h = true
 
 [node name="SoulOfTheWall" type="Sprite2D" parent="Pausable"]

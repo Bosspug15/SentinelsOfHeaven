@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8t6h67kc764t"]
+
+[ext_resource type="Texture2D" uid="uid://dt3dwjo83t6yt" path="res://Assets/Art/Soul of The Wall.png" id="1_82eno"]
+
+[sub_resource type="Gradient" id="Gradient_ikofh"]
+offsets = PackedFloat32Array(0, 0.526316)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0.097)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_beypj"]
+gradient = SubResource("Gradient_ikofh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p447s"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(165, 1, 1)
+angle_min = -360.0
+angle_max = 360.0
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 75.0
+gravity = Vector3(0, -98, 0)
+linear_accel_min = -25.8
+linear_accel_max = 40.87
+radial_accel_min = -32.26
+radial_accel_max = -22.58
+scale_min = 0.4
+color = Color(100, 100, 100, 1)
+color_ramp = SubResource("GradientTexture1D_beypj")
+
+[node name="Soul_Particles" type="GPUParticles2D"]
+modulate = Color(1, 1, 1, 0.45)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_p447s")
+texture = ExtResource("1_82eno")
+lifetime = 5.0
+speed_scale = 0.5
+randomness = 0.2
+trail_enabled = true
+trail_lifetime = 4.0

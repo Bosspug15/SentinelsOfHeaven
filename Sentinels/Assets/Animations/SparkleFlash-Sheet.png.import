@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b674ujhjrw6xj"
-path="res://.godot/imported/DetailedDarkColorPixel-export.png-54916c892f930fdc6f476d1e54d5b653.ctex"
+uid="uid://dfqemxe426xh1"
+path="res://.godot/imported/SparkleFlash-Sheet.png-b96b112a7358ce394c884632617be78e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TitanTiles/DetailedDarkColorPixel-export.png"
-dest_files=["res://.godot/imported/DetailedDarkColorPixel-export.png-54916c892f930fdc6f476d1e54d5b653.ctex"]
+source_file="res://Assets/Animations/SparkleFlash-Sheet.png"
+dest_files=["res://.godot/imported/SparkleFlash-Sheet.png-b96b112a7358ce394c884632617be78e.ctex"]
 
 [params]
 

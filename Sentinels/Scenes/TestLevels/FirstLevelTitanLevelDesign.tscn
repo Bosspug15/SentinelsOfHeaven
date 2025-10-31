@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://b062doklaew5q"]
+[gd_scene load_steps=92 format=4 uid="uid://b062doklaew5q"]
 
 [ext_resource type="Script" path="res://Scripts/first_level_titan_level_designManager.gd" id="1_8tibr"]
 [ext_resource type="PackedScene" uid="uid://cvv6wgu78lm73" path="res://Scenes/player.tscn" id="1_oflta"]
@@ -14,14 +14,16 @@
 [ext_resource type="Texture2D" uid="uid://dk80h6vb66bh8" path="res://Assets/Blocks/Dirt.png" id="12_6e44v"]
 [ext_resource type="Texture2D" uid="uid://lt7f6h1xg5ew" path="res://Assets/Blocks/Brick.png" id="15_y77dv"]
 [ext_resource type="Texture2D" uid="uid://bgl1dafgejr2j" path="res://Assets/Art/ParallaxDecoTest.png" id="18_ieqf8"]
+[ext_resource type="Texture2D" uid="uid://dp62mpqwndxgx" path="res://Assets/Art/ParallaxBackground8bit.png" id="18_vqolo"]
 [ext_resource type="Texture2D" uid="uid://bngey5o6eifyu" path="res://Assets/Blocks/SmoothBrickFadedTestEdgeBOT.png" id="19_m3oli"]
+[ext_resource type="PackedScene" uid="uid://dgkfvlu2ciwqu" path="res://Scenes/Spawn_particles.tscn" id="20_gh0vx"]
 [ext_resource type="Texture2D" uid="uid://yewayveaxtt6" path="res://Assets/Blocks/SmoothBrickFadedTestEdgeTOP.png" id="20_llg1l"]
 [ext_resource type="Texture2D" uid="uid://d14cypjfvgotd" path="res://Assets/Blocks/SmoothBrickCornerFaded (1).png" id="21_fcxx7"]
 [ext_resource type="AudioStream" uid="uid://cxfyyvif4qwly" path="res://Assets/Audio/AmbientWind.wav" id="28_hebte"]
 [ext_resource type="Texture2D" uid="uid://dlg38qo87ym43" path="res://Assets/Art/BlissBlue.png" id="29_w0xmy"]
 [ext_resource type="Texture2D" uid="uid://dt3dwjo83t6yt" path="res://Assets/Art/Soul of The Wall.png" id="30_3cb08"]
 [ext_resource type="Texture2D" uid="uid://bk2kjxr8joy1e" path="res://Assets/TitanTiles/ShatterDetail.png" id="32_bn671"]
-[ext_resource type="Texture2D" uid="uid://dcom3mrccbbph" path="res://Assets/TitanTiles/DarkerTitanColor.png" id="33_f3ao3"]
+[ext_resource type="Texture2D" uid="uid://dcom3mrccbbph" path="res://Assets/TitanTiles/TexturedTiles/DarkerTitanColor.png" id="33_f3ao3"]
 [ext_resource type="Texture2D" uid="uid://b4afoj8di1in6" path="res://Assets/TitanTiles/TexturedTiles/tile4.png" id="34_3fknj"]
 [ext_resource type="Texture2D" uid="uid://bywhpwa7phw4k" path="res://Assets/TitanTiles/TitanBaseColor.png" id="34_5mf7g"]
 [ext_resource type="Texture2D" uid="uid://cc4da5mrsx87h" path="res://Assets/TitanTiles/TexturedTiles/tile3.png" id="35_ryw4x"]
@@ -383,7 +385,7 @@ player = NodePath("Pausable/Player")
 process_mode = 1
 
 [node name="Player" parent="Pausable" node_paths=PackedStringArray("camera") instance=ExtResource("1_oflta")]
-position = Vector2(356, -104)
+position = Vector2(-947, -34)
 camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Pausable/Player"]
@@ -499,6 +501,10 @@ rotation = 0.000225823
 tile_map_data = PackedByteArray("AAAGANn/HQAAAAAAAAAHANn/HQAAAAAAAAAIANr/HQAAAAAAAAAJANr/HQAAAAAAAAAKANr/HQAAAAAAAAALANr/HQAAAAAAAAAOANr/HQAAAAAAAAAPANr/HQAAAAAAAAD7/9v/HQAAAAAAAAD6/9v/HQAAAAAAAAD5/9v/HQAAAAAAAAD4/9v/HQAAAAAAAAD3/9v/HQAAAAAAAAD2/9v/HQAAAAAAAAD1/9v/HQAAAAAAAAD0/9v/HQAAAAAAAADz/9v/HQAAAAAAAADy/9v/HQAAAAAAAADx/9v/HQAAAAAAAADw/9v/HQAAAAAAAADv/9v/HQAAAAAAAADu/9v/HQAAAAAAAADt/9v/HQAAAAAAAADs/9v/HQAAAAAAAADr/9v/HQAAAAAAAADq/9v/HQAAAAAAAADp/9v/HQAAAAAAAADo/9v/HQAAAAAAAADn/9v/HQAAAAAAAADg/9j/HQAAAAAAAADf/9j/HQAAAAAAAADd/9X/HQAAAAAAAADc/9X/HQAAAAAAAADf/9L/HQAAAAAAAADg/9L/HQAAAAAAAAA=")
 tile_set = SubResource("TileSet_aj5dj")
 
+[node name="Spawn_particles" parent="Pausable" instance=ExtResource("20_gh0vx")]
+position = Vector2(-1090, 78)
+visibility_rect = Rect2(-100, -1000, 1000, 1000)
+
 [node name="ParallaxBackgroundTest" type="ParallaxBackground" parent="Pausable"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Pausable/ParallaxBackgroundTest"]
@@ -507,9 +513,14 @@ motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(3840, 0)
 
 [node name="BlissBackground" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxLayer"]
-z_index = -5
-position = Vector2(-29, -533)
+z_index = -7
 texture = ExtResource("29_w0xmy")
+
+[node name="BackgroundTest" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxLayer"]
+visible = false
+z_index = -7
+position = Vector2(200, 100)
+texture = ExtResource("18_vqolo")
 
 [node name="Deco" type="ParallaxLayer" parent="Pausable/ParallaxBackgroundTest"]
 
@@ -979,6 +990,7 @@ position = Vector2(-848, -1219)
 
 [node name="LevelEndSparkle" parent="Pausable" node_paths=PackedStringArray("player", "fade_to_white") instance=ExtResource("47_48gvm")]
 top_level = true
+z_index = 50
 position = Vector2(417, -1464)
 scale = Vector2(1.5, 1.5)
 player = NodePath("../Player")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ik64wt2it71u"
-path="res://.godot/imported/DetailedTitanBaseColor-export.png-ec91469f6bddd1ec570ad4aca5ed4a96.ctex"
+uid="uid://cs3e3sxj2an4q"
+path="res://.godot/imported/ParallaxTheWall.png-5d72c244f75beb31b163e35ee9304a9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TitanTiles/DetailedTitanBaseColor-export.png"
-dest_files=["res://.godot/imported/DetailedTitanBaseColor-export.png-ec91469f6bddd1ec570ad4aca5ed4a96.ctex"]
+source_file="res://Assets/Art/ParallaxTheWall.png"
+dest_files=["res://.godot/imported/ParallaxTheWall.png-5d72c244f75beb31b163e35ee9304a9b.ctex"]
 
 [params]
 
