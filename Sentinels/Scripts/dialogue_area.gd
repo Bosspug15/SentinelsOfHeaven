@@ -8,7 +8,6 @@ func _input(_event):
 	if area_active && Input.is_action_just_pressed("continue_dialogue") && continue_timer.is_stopped():
 		SignalBus.emit_signal("display_dialog", dialog_key)
 		continue_timer.start()
-		
 
 func _on_body_entered(_body: Node2D) -> void:
 	area_active = true
