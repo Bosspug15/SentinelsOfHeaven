@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=4 uid="uid://cv8aa5s4ikbvd"]
+[gd_scene load_steps=128 format=4 uid="uid://cv8aa5s4ikbvd"]
 
 [ext_resource type="Script" path="res://Scripts/first_level_titan_level_designManager.gd" id="1_e1n8y"]
 [ext_resource type="PackedScene" uid="uid://cvv6wgu78lm73" path="res://Scenes/player.tscn" id="2_qkib8"]
@@ -20,10 +20,15 @@
 [ext_resource type="Texture2D" uid="uid://dt3dwjo83t6yt" path="res://Assets/Art/Soul of The Wall.png" id="18_5g8yu"]
 [ext_resource type="Texture2D" uid="uid://47who6k4c7g7" path="res://Assets/Art/ParallaxMistern.png" id="18_dfu41"]
 [ext_resource type="Texture2D" uid="uid://c3ls4wvbf1ybq" path="res://Assets/Art/SavePoint.png" id="19_o1iyq"]
+[ext_resource type="Texture2D" uid="uid://dbiajasxbex5j" path="res://Assets/Art/ParallaxBackground8bitBack.png" id="19_x7j6r"]
+[ext_resource type="Texture2D" uid="uid://dp62mpqwndxgx" path="res://Assets/Art/ParallaxBackground8bit.png" id="20_44mpn"]
 [ext_resource type="Texture2D" uid="uid://b4afoj8di1in6" path="res://Assets/TitanTiles/TexturedTiles/tile4.png" id="20_m46ak"]
+[ext_resource type="Script" path="res://Scripts/moving_clouds.gd" id="21_giat3"]
 [ext_resource type="Texture2D" uid="uid://dcom3mrccbbph" path="res://Assets/TitanTiles/TexturedTiles/DarkerTitanColor.png" id="21_k0iq8"]
 [ext_resource type="Texture2D" uid="uid://cc4da5mrsx87h" path="res://Assets/TitanTiles/TexturedTiles/tile3.png" id="22_b8e2u"]
+[ext_resource type="Texture2D" uid="uid://ylmw527c4yql" path="res://Assets/Art/ParallaxClouds.png" id="22_c4lll"]
 [ext_resource type="Texture2D" uid="uid://bvs3m1cftyog0" path="res://Assets/TitanTiles/TexturedTiles/tile2.png" id="23_knnth"]
+[ext_resource type="Texture2D" uid="uid://bib5kyo0u18iw" path="res://Assets/Art/ParallaxBackground8bitFarthestMound.png" id="23_negua"]
 [ext_resource type="Texture2D" uid="uid://da1p3pxfarr85" path="res://Assets/TitanTiles/TexturedTiles/DetailedLightestTitanColor-export.png" id="24_442nf"]
 [ext_resource type="Texture2D" uid="uid://bywhpwa7phw4k" path="res://Assets/TitanTiles/TitanBaseColor.png" id="25_kqarl"]
 [ext_resource type="Texture2D" uid="uid://cjauv0dvvprcv" path="res://Assets/TitanTiles/TitanBrickDetail.png" id="26_kc0c3"]
@@ -725,6 +730,43 @@ _data = {
 "RESET": SubResource("Animation_csp73")
 }
 
+[sub_resource type="Animation" id="Animation_twp72"]
+resource_name = "FogFadeIn"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FogFade/FogEffectMesh:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kvhxr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FogFade/FogEffectMesh:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6asn8"]
+_data = {
+"FogFadeIn": SubResource("Animation_twp72"),
+"RESET": SubResource("Animation_kvhxr")
+}
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_it5qa"]
 shader = ExtResource("34_0wx4v")
 shader_parameter/color = Color(0.52549, 0.658824, 0.717647, 1)
@@ -868,7 +910,7 @@ player = NodePath("Pausable/Player")
 process_mode = 1
 
 [node name="Player" parent="Pausable" node_paths=PackedStringArray("camera") instance=ExtResource("2_qkib8")]
-position = Vector2(859, -81)
+position = Vector2(-1205, 53)
 camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Pausable/Player"]
@@ -1002,7 +1044,7 @@ modulate = Color(1, 1, 1, 0.501961)
 z_index = -1
 use_parent_material = true
 rotation = 0.000225823
-tile_map_data = PackedByteArray("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")
+tile_map_data = PackedByteArray("AAAUANP/HwAAAAAAAAAVANL/IAAAAAAAAAAYAM3/IAAAAAAAAAAVANP/IgAAAAAAAAATANP/IwAAAAAAAAAYAM7/IgAAAAAAAAAUAM7/IwAAAAAAAAAVAM7/HwAAAAAAAAAWAM7/HwAAAAAAAAAXAM7/HwAAAAAAAAAUAM//IAAAAAAAAAAUAND/IAAAAAAAAAAUANH/IAAAAAAAAAAUANL/IAAAAAAAAAAUANT/IAAAAAAAAAAbANf/IgAAAAAAAAAaANf/IgAAAAAAAAAYANf/IwAAAAAAAAAYANj/IAAAAAAAAAAaANj/IAAAAAAAAAAaANn/IAAAAAAAAAAaANr/IAAAAAAAAAAaANv/IAAAAAAAAAAaANz/IAAAAAAAAAAZANf/HwAAAAAAAAD9//3/HwAAAAAAAAAAAPz/HwAAAAAAAAD///z/HwAAAAAAAAABAPz/HwAAAAAAAAD8//3/IQAAAAAAAAD+//3/IgAAAAAAAAD8//z/IwAAAAAAAAD+//z/IwAAAAAAAAAFAPn/JAAAAAAAAAAFAPr/IgAAAAAAAAACAPv/IAAAAAAAAAACAPr/IwAAAAAAAAACAPz/IgAAAAAAAAADAPr/HwAAAAAAAAAEAPr/HwAAAAAAAAANAPn/IwAAAAAAAAANAPr/IQAAAAAAAAAOAPr/HwAAAAAAAAAPAPr/HwAAAAAAAAAQAPr/JAAAAAAAAAAQAPz/IQAAAAAAAAARAPz/HwAAAAAAAAASAPz/HwAAAAAAAAATAPz/HwAAAAAAAAAUAPz/JAAAAAAAAAAWAPz/JAAAAAAAAAAWAP3/IgAAAAAAAAAUAP3/IQAAAAAAAAAQAPv/IAAAAAAAAAAVAP3/HwAAAAAAAAD1//D/IwAAAAAAAAD1//H/IQAAAAAAAAD3//H/IgAAAAAAAAD3//D/IwAAAAAAAAD7//D/IgAAAAAAAAD2//H/HwAAAAAAAAD4//D/HwAAAAAAAAD5//D/HwAAAAAAAAD6//D/HwAAAAAAAAD7/+//IwAAAAAAAAD8/+//JgAAAAAAAAAdAPH/IgAAAAAAAAAdAPD/JAAAAAAAAAAbAPD/JAAAAAAAAAAbAPH/IQAAAAAAAAAXAPD/IQAAAAAAAAAXAO//JAAAAAAAAAAWAO//JQAAAAAAAAAaAPD/HwAAAAAAAAAcAPH/HwAAAAAAAAD6/+f/IwAAAAAAAAD6/+v/IQAAAAAAAAD6/+j/IAAAAAAAAAD6/+r/IAAAAAAAAAD7/+f/HwAAAAAAAAD8/+f/HwAAAAAAAAAEANH/HwAAAAAAAAAFANH/HwAAAAAAAAAGANH/HwAAAAAAAAAHANH/JAAAAAAAAAALANH/IwAAAAAAAAALANL/IgAAAAAAAAAHANL/IQAAAAAAAAAIANL/HwAAAAAAAAAJANL/HwAAAAAAAAAKANL/HwAAAAAAAAAMANH/HwAAAAAAAAANANH/HwAAAAAAAAAOANH/HwAAAAAAAAADANH/IQAAAAAAAAADAND/JAAAAAAAAAAQAND/IgAAAAAAAAACAND/IQAAAAAAAAACAM//IwAAAAAAAAADAM//HwAAAAAAAAAEAM//HwAAAAAAAAAFAM//HwAAAAAAAAAGAM//HwAAAAAAAAAMAM//HwAAAAAAAAANAM//HwAAAAAAAAAOAM//HwAAAAAAAAAQAM//JAAAAAAAAAAPANH/IgAAAAAAAAAPAND/IwAAAAAAAAAPAM//HwAAAAAAAAABAAAAIgAAAAAAAAABAP7/IwAAAAAAAAAEAP7/IgAAAAAAAAAFAP3/IgAAAAAAAAD8/wEAIAAAAAAAAAD8/wAAIwAAAAAAAAD9/wAAHwAAAAAAAAD+/wAAHwAAAAAAAAD//wAAHwAAAAAAAAAAAAAAHwAAAAAAAAANAP3/IQAAAAAAAAANAPz/IwAAAAAAAAAOAP3/JAAAAAAAAAAOAP7/IAAAAAAAAAAOAP//IAAAAAAAAAAOAAAAJwAAAAAAAAAbAAEAIAAAAAAAAAAbAAAAIAAAAAAAAAAbAP//IAAAAAAAAAAbAP7/KAAAAAAAAAAgAAEAIAAAAAAAAAAgAAAAIAAAAAAAAAAgAP//KAAAAAAAAAAnAPn/KAAAAAAAAAAnAPr/IAAAAAAAAAAnAPv/IAAAAAAAAAAnAPz/IAAAAAAAAAAnAP3/IAAAAAAAAAAnAP7/IAAAAAAAAAAnAP//IAAAAAAAAADm//z/IwAAAAAAAADn//v/KAAAAAAAAADn//z/IgAAAAAAAADm//3/IAAAAAAAAADm//7/IAAAAAAAAADm////IAAAAAAAAADn//3/JAAAAAAAAADn//7/IAAAAAAAAADs/wEAKAAAAAAAAAAJAP//IwAAAAAAAAAJAAAAIAAAAAAAAAAJAAEAIAAAAAAAAADy//3/KAAAAAAAAADy//7/IAAAAAAAAADy////IAAAAAAAAADy/wAAIAAAAAAAAADy/wEAIAAAAAAAAAD1/+X/IwAAAAAAAAD1/+b/IAAAAAAAAAD1/+f/IAAAAAAAAAD1/+j/JwAAAAAAAAAcAN//JAAAAAAAAAAcAOH/IgAAAAAAAAAcAOD/IAAAAAAAAAAFAPP/IgAAAAAAAAANAPP/IQAAAAAAAAAFAPL/IwAAAAAAAAANAPL/JAAAAAAAAAAGAPL/HwAAAAAAAAAHAPL/HwAAAAAAAAAIAPL/HwAAAAAAAAAJAPL/HwAAAAAAAAAKAPL/HwAAAAAAAAALAPL/HwAAAAAAAAAMAPL/HwAAAAAAAAADAOr/KAAAAAAAAAAPAOr/KAAAAAAAAAADAOv/IAAAAAAAAAAPAOv/IAAAAAAAAAAEAOv/KAAAAAAAAAAOAOv/KAAAAAAAAAD7/+v/JAAAAAAAAAD7/+z/JwAAAAAAAAD6/+n/IAAAAAAAAAD9/+f/IgAAAAAAAAAnAAAAIAAAAAAAAAAmAPz/IQAAAAAAAAAmAPv/KAAAAAAAAAA=")
 tile_set = SubResource("TileSet_aj5dj")
 
 [node name="Mid" type="TileMapLayer" parent="Pausable"]
@@ -1036,6 +1078,7 @@ tile_set = SubResource("TileSet_aj5dj")
 [node name="ParallaxBackgroundTest" type="ParallaxBackground" parent="Pausable"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Pausable/ParallaxBackgroundTest"]
+z_index = -10
 motion_scale = Vector2(0, 0.4)
 
 [node name="BlissBackground" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxLayer"]
@@ -1053,6 +1096,66 @@ motion_offset = Vector2(500, 0)
 [node name="ParallaxDeco" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxRubble"]
 texture = ExtResource("18_dfu41")
 flip_h = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Pausable/ParallaxBackgroundTest"]
+position = Vector2(0, 100)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="BlissBackground" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxLayer2"]
+z_index = -7
+texture = ExtResource("17_ixu6m")
+
+[node name="BlissBackground2" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxLayer2"]
+modulate = Color(0.728118, 0.759362, 0.825912, 1)
+z_index = -7
+texture = ExtResource("19_x7j6r")
+
+[node name="BackgroundTest" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxLayer2"]
+visible = false
+modulate = Color(0.856067, 0.856067, 0.856067, 1)
+z_index = -7
+position = Vector2(200, 100)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("20_44mpn")
+
+[node name="Clouds" type="ParallaxLayer" parent="Pausable/ParallaxBackgroundTest"]
+position = Vector2(0, 100)
+motion_scale = Vector2(0.05, 0.1)
+motion_offset = Vector2(500, 0)
+motion_mirroring = Vector2(1280, 0)
+script = ExtResource("21_giat3")
+cloud_speed = -5.0
+
+[node name="Clouds" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/Clouds"]
+modulate = Color(0.856067, 0.856067, 0.856067, 1)
+z_index = -7
+position = Vector2(200, 170)
+texture = ExtResource("22_c4lll")
+
+[node name="FarthestMound" type="ParallaxLayer" parent="Pausable/ParallaxBackgroundTest"]
+position = Vector2(0, 200)
+motion_scale = Vector2(0.1, 0.1)
+motion_offset = Vector2(500, 0)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="FarthestMound" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/FarthestMound"]
+modulate = Color(0.843, 0.843, 0.843, 0.9)
+z_index = -7
+position = Vector2(200, 15)
+texture = ExtResource("23_negua")
+
+[node name="FrontMound" type="ParallaxLayer" parent="Pausable/ParallaxBackgroundTest"]
+position = Vector2(0, 100)
+motion_scale = Vector2(0.17, 0.1)
+motion_offset = Vector2(500, 0)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="BackgroundTest" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/FrontMound"]
+modulate = Color(0.856067, 0.856067, 0.856067, 1)
+z_index = -7
+position = Vector2(200, 130)
+texture = ExtResource("20_44mpn")
 
 [node name="SoulOfTheWall" type="Sprite2D" parent="Pausable"]
 position = Vector2(306, -1674)
@@ -1690,14 +1793,23 @@ autoplay = "Loop"
 frame_progress = 0.938532
 
 [node name="Fog" type="CanvasLayer" parent="Pausable"]
+layer = 10
 
-[node name="FogEffectMesh" type="MeshInstance2D" parent="Pausable/Fog"]
+[node name="FogFade" type="AnimationPlayer" parent="Pausable/Fog"]
+libraries = {
+"": SubResource("AnimationLibrary_6asn8")
+}
+autoplay = "FogFadeIn"
+
+[node name="FogEffectMesh" type="MeshInstance2D" parent="Pausable/Fog/FogFade"]
+modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_it5qa")
 mesh = SubResource("QuadMesh_lg7j0")
 
-[node name="DialoguePlayer2" parent="." node_paths=PackedStringArray("mentor_bird") instance=ExtResource("42_4ot3l")]
+[node name="DialoguePlayer2" parent="." node_paths=PackedStringArray("mentor_bird", "dialogue_area") instance=ExtResource("42_4ot3l")]
 scene_text_file = "res://Assets/json/first_level.json"
 mentor_bird = NodePath("../MentorBirdAnims/MentorBird")
+dialogue_area = NodePath("../DialogueArea")
 
 [node name="AreaIntro" type="AudioStreamPlayer2D" parent="DialoguePlayer2"]
 stream = ExtResource("43_nphek")

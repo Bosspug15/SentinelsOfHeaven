@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://cbfx7b506m6ay"]
+[gd_scene load_steps=57 format=4 uid="uid://cbfx7b506m6ay"]
 
 [ext_resource type="Script" path="res://Scripts/first_level_titan_level_designManager.gd" id="1_nuv2v"]
 [ext_resource type="PackedScene" uid="uid://cvv6wgu78lm73" path="res://Scenes/player.tscn" id="2_5cd8c"]
@@ -18,6 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://dlg38qo87ym43" path="res://Assets/Art/BlissBlue.png" id="17_bkicp"]
 [ext_resource type="Texture2D" uid="uid://bgl1dafgejr2j" path="res://Assets/Art/ParallaxDecoTest.png" id="17_p3kp4"]
 [ext_resource type="PackedScene" uid="uid://dcdfj6g3l16bh" path="res://Scenes/tutorial_text.tscn" id="18_7yj1j"]
+[ext_resource type="Texture2D" uid="uid://dbiajasxbex5j" path="res://Assets/Art/ParallaxBackground8bitBack.png" id="18_dl4du"]
+[ext_resource type="Texture2D" uid="uid://dp62mpqwndxgx" path="res://Assets/Art/ParallaxBackground8bit.png" id="19_80ioy"]
+[ext_resource type="Script" path="res://Scripts/moving_clouds.gd" id="20_u5kio"]
+[ext_resource type="Texture2D" uid="uid://ylmw527c4yql" path="res://Assets/Art/ParallaxClouds.png" id="21_2qc7b"]
+[ext_resource type="Texture2D" uid="uid://bib5kyo0u18iw" path="res://Assets/Art/ParallaxBackground8bitFarthestMound.png" id="22_5kxad"]
 [ext_resource type="AudioStream" uid="uid://04kyuc3bsg82" path="res://Assets/Audio/SoundEffects/CawSFX.wav" id="24_jn4o1"]
 [ext_resource type="PackedScene" uid="uid://dxnbjlnd2sw6u" path="res://Scenes/tutorial_text_box.tscn" id="27_lkxi1"]
 [ext_resource type="PackedScene" uid="uid://bj7ekd65jbgn2" path="res://Scenes/transition_box.tscn" id="29_ykcmu"]
@@ -227,7 +232,7 @@ player = NodePath("Pausable/Player")
 process_mode = 1
 
 [node name="Player" parent="Pausable" node_paths=PackedStringArray("camera") instance=ExtResource("2_5cd8c")]
-position = Vector2(-1276, 57)
+position = Vector2(-1270, 57)
 camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Pausable/Player"]
@@ -276,6 +281,7 @@ tile_set = SubResource("TileSet_aj5dj")
 [node name="ParallaxBackgroundTest" type="ParallaxBackground" parent="Pausable"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Pausable/ParallaxBackgroundTest"]
+z_index = -10
 motion_scale = Vector2(0, 0.4)
 
 [node name="BlissBackground" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxLayer"]
@@ -292,6 +298,66 @@ motion_offset = Vector2(500, 0)
 
 [node name="ParallaxDeco" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxRubble"]
 texture = ExtResource("17_p3kp4")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Pausable/ParallaxBackgroundTest"]
+position = Vector2(0, 100)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="BlissBackground" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxLayer2"]
+z_index = -7
+texture = ExtResource("17_bkicp")
+
+[node name="BlissBackground2" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxLayer2"]
+modulate = Color(0.728118, 0.759362, 0.825912, 1)
+z_index = -7
+texture = ExtResource("18_dl4du")
+
+[node name="BackgroundTest" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/ParallaxLayer2"]
+visible = false
+modulate = Color(0.856067, 0.856067, 0.856067, 1)
+z_index = -7
+position = Vector2(200, 100)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("19_80ioy")
+
+[node name="Clouds" type="ParallaxLayer" parent="Pausable/ParallaxBackgroundTest"]
+position = Vector2(0, 100)
+motion_scale = Vector2(0.05, 0.1)
+motion_offset = Vector2(500, 0)
+motion_mirroring = Vector2(1280, 0)
+script = ExtResource("20_u5kio")
+cloud_speed = -5.0
+
+[node name="Clouds" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/Clouds"]
+modulate = Color(0.856067, 0.856067, 0.856067, 1)
+z_index = -7
+position = Vector2(200, 170)
+texture = ExtResource("21_2qc7b")
+
+[node name="FarthestMound" type="ParallaxLayer" parent="Pausable/ParallaxBackgroundTest"]
+position = Vector2(0, 200)
+motion_scale = Vector2(0.1, 0.1)
+motion_offset = Vector2(500, 0)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="FarthestMound" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/FarthestMound"]
+modulate = Color(0.843, 0.843, 0.843, 0.9)
+z_index = -7
+position = Vector2(200, 15)
+texture = ExtResource("22_5kxad")
+
+[node name="FrontMound" type="ParallaxLayer" parent="Pausable/ParallaxBackgroundTest"]
+position = Vector2(0, 100)
+motion_scale = Vector2(0.17, 0.1)
+motion_offset = Vector2(500, 0)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="BackgroundTest" type="Sprite2D" parent="Pausable/ParallaxBackgroundTest/FrontMound"]
+modulate = Color(0.856067, 0.856067, 0.856067, 1)
+z_index = -7
+position = Vector2(200, 130)
+texture = ExtResource("19_80ioy")
 
 [node name="FadeAnimation" type="Node" parent="Pausable"]
 

@@ -389,7 +389,7 @@ player = NodePath("Pausable/Player")
 process_mode = 1
 
 [node name="Player" parent="Pausable" node_paths=PackedStringArray("camera") instance=ExtResource("1_oflta")]
-position = Vector2(-108, -40)
+position = Vector2(494, -1402)
 camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Pausable/Player"]
@@ -405,9 +405,6 @@ position_smoothing_enabled = true
 [node name="Spike8" parent="Pausable/all spikes" instance=ExtResource("2_45xc3")]
 position = Vector2(144, -560)
 rotation = 3.14159
-
-[node name="Spike21" parent="Pausable/all spikes" instance=ExtResource("2_45xc3")]
-position = Vector2(-240, 16)
 
 [node name="Spike9" parent="Pausable/all spikes" instance=ExtResource("2_45xc3")]
 position = Vector2(272, -656)
@@ -1039,15 +1036,16 @@ position = Vector2(-848, -1219)
 
 [node name="LevelEndSparkle" parent="Pausable" node_paths=PackedStringArray("player", "fade_to_white") instance=ExtResource("47_48gvm")]
 top_level = true
-z_index = 50
+z_index = 10
 position = Vector2(417, -1464)
 scale = Vector2(1.5, 1.5)
 player = NodePath("../Player")
 fade_to_white = NodePath("../../DialoguePlayer2/FadeWhite")
 
-[node name="DialoguePlayer2" parent="." node_paths=PackedStringArray("mentor_bird") instance=ExtResource("44_rwoh6")]
+[node name="DialoguePlayer2" parent="." node_paths=PackedStringArray("mentor_bird", "dialogue_area") instance=ExtResource("44_rwoh6")]
 scene_text_file = "res://Assets/json/first_level.json"
 mentor_bird = NodePath("../MentorBirdAnims/MentorBird")
+dialogue_area = NodePath("../DialogueArea")
 
 [node name="AreaIntro" type="AudioStreamPlayer2D" parent="DialoguePlayer2"]
 stream = ExtResource("42_n2eqa")

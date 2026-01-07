@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @export_file("*json") var scene_text_file
 @export var mentor_bird : Node
+@export var dialogue_area : Area2D
 
 var scene_text: Dictionary = {}
 var selected_text: Array = []
@@ -48,6 +49,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		mentor_bird.play("Jump_Squat")
 		in_progress = false
 		get_tree().paused = false
+		dialogue_area.area_active = false
 
 func on_display_dialog(text_key):
 	if in_progress:

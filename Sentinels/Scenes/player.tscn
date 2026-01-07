@@ -989,7 +989,7 @@ collision_layer = 5
 script = ExtResource("1_qu07d")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-modulate = Color(2, 2, 2, 1)
+modulate = Color(2.1, 2.1, 2.1, 1)
 z_index = 2
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_ev1cv")
@@ -1027,7 +1027,6 @@ wait_time = 0.9
 one_shot = true
 
 [node name="FadeOut" type="AnimatedSprite2D" parent="."]
-visible = false
 z_index = 20
 position = Vector2(-1, -31)
 scale = Vector2(15, 15)
@@ -1041,7 +1040,7 @@ scale = Vector2(0.933333, 0.933333)
 texture = ExtResource("14_63vqg")
 
 [node name="FadeInTimer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 2.0
 one_shot = true
 
 [node name="ResetWait" type="Timer" parent="."]
