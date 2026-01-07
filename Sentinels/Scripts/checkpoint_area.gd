@@ -1,11 +1,10 @@
 extends Area2D
 
+@export var respawnPoint : Marker2D
 
 @onready var checkpoint_manager = get_parent().get_node("CheckpointManager")
 @onready var player = get_parent().get_node("Player")
 @onready var respawn_point = $RespawnPoint
-@onready var checkpoint_spark = $AnimatedSprite2D
-@onready var anim_offset = $AnimOffset
 
 var hasChecked = false
 
@@ -20,12 +19,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		if !hasChecked:
 			#body.setCheckpoint()
-			anim_offset.start()
-			checkpoint_manager.last_location = respawn_point.position
+			checkpoint_manager.last_location = respawnPoint.position
 			hasChecked = true
-
-func _on_anim_offset_timeout() -> void:
-	checkpoint_spark.play("CheckpointForm")
-
-func _on_animated_sprite_2d_animation_finished() -> void:
-	checkpoint_spark.play("Sparkle")

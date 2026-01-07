@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=4 uid="uid://b062doklaew5q"]
+[gd_scene load_steps=97 format=4 uid="uid://b062doklaew5q"]
 
 [ext_resource type="Script" path="res://Scripts/first_level_titan_level_designManager.gd" id="1_8tibr"]
 [ext_resource type="PackedScene" uid="uid://cvv6wgu78lm73" path="res://Scenes/player.tscn" id="1_oflta"]
@@ -46,6 +46,7 @@
 [ext_resource type="Shader" path="res://Assets/Shaders/screen_effect.gdshader" id="41_4477l"]
 [ext_resource type="Shader" path="res://Assets/Shaders/CA.gdshader" id="42_40c85"]
 [ext_resource type="AudioStream" uid="uid://cxpe2ybfsmxv6" path="res://Assets/Audio/SoundEffects/AreaIntro.mp3" id="42_n2eqa"]
+[ext_resource type="PackedScene" uid="uid://bri62h7i1loud" path="res://Scenes/checkpoint_area.tscn" id="42_oswe0"]
 [ext_resource type="PackedScene" uid="uid://kw5mmunrutpv" path="res://Scenes/mentor_bird.tscn" id="42_tv16s"]
 [ext_resource type="Script" path="res://Scripts/checkpoint_manager.gd" id="43_4tgtf"]
 [ext_resource type="PackedScene" uid="uid://ddr2hfjoklxpo" path="res://Scenes/fade_white.tscn" id="43_86mhc"]
@@ -389,7 +390,7 @@ player = NodePath("Pausable/Player")
 process_mode = 1
 
 [node name="Player" parent="Pausable" node_paths=PackedStringArray("camera") instance=ExtResource("1_oflta")]
-position = Vector2(494, -1402)
+position = Vector2(512, 37)
 camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Pausable/Player"]
@@ -612,6 +613,13 @@ environment = SubResource("Environment_yuiry")
 
 [node name="CheckpointManager" type="Node" parent="Pausable"]
 script = ExtResource("43_4tgtf")
+
+[node name="CheckpointArea" parent="Pausable" node_paths=PackedStringArray("respawnPoint") instance=ExtResource("42_oswe0")]
+position = Vector2(564, 7)
+respawnPoint = NodePath("Checkpoint")
+
+[node name="Checkpoint" type="Marker2D" parent="Pausable/CheckpointArea"]
+position = Vector2(545, -100)
 
 [node name="SecretSparkle" parent="Pausable" instance=ExtResource("48_ufb81")]
 position = Vector2(448, -1216)
