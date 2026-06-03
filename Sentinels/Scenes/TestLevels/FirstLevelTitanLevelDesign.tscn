@@ -390,7 +390,7 @@ player = NodePath("Pausable/Player")
 process_mode = 1
 
 [node name="Player" parent="Pausable" node_paths=PackedStringArray("camera") instance=ExtResource("1_oflta")]
-position = Vector2(512, 37)
+position = Vector2(-957, 24)
 camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Pausable/Player"]

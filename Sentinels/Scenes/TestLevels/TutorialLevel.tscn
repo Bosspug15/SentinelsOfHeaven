@@ -816,9 +816,10 @@ stream = ExtResource("24_jn4o1")
 
 [node name="CurrentlyTempAnim CHANGE" type="Node" parent="MentorBirdAnims"]
 
-[node name="DialoguePlayer2" parent="." node_paths=PackedStringArray("mentor_bird") instance=ExtResource("41_3lp5g")]
+[node name="DialoguePlayer2" parent="." node_paths=PackedStringArray("mentor_bird", "dialogue_area") instance=ExtResource("41_3lp5g")]
 scene_text_file = "res://Assets/json/first_level.json"
 mentor_bird = NodePath("../MentorBirdAnims/MentorBird")
+dialogue_area = NodePath("../DialogueArea")
 titleFinished = true
 
 [node name="DialogueArea" parent="." instance=ExtResource("42_6mu6h")]
@@ -830,7 +831,6 @@ dialog_key = "TutorialScene"
 process_mode = 3
 position = Vector2(-304, -280)
 stream = ExtResource("43_pc3ba")
-autoplay = true
 max_distance = 10000.0
 panning_strength = 0.0
 

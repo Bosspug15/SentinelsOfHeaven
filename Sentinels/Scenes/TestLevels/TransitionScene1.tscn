@@ -844,10 +844,9 @@ position = Vector2(560, 64.2)
 z_index = 5
 position = Vector2(528, 64.2)
 
-[node name="DialoguePlayer2" parent="." node_paths=PackedStringArray("mentor_bird", "dialogue_area") instance=ExtResource("47_4j11w")]
+[node name="DialoguePlayer2" parent="." node_paths=PackedStringArray("mentor_bird") instance=ExtResource("47_4j11w")]
 scene_text_file = "res://Assets/json/first_level.json"
 mentor_bird = NodePath("../MentorBirdAnims/MentorBird")
-dialogue_area = NodePath("")
 
 [node name="AreaIntro" type="AudioStreamPlayer2D" parent="DialoguePlayer2"]
 stream = ExtResource("48_271rm")
